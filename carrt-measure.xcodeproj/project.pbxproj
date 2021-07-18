@@ -1,0 +1,1550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		480BEB6E24648D72008819D9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480BEB6D24648D72008819D9 /* Models.swift */; };
+		4811570424606894004D0683 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811570324606894004D0683 /* ProjectsViewController.swift */; };
+		4843E86B245B5D0E0044669C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843E86A245B5D0E0044669C /* AppDelegate.swift */; };
+		4843E86D245B5D0E0044669C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843E86C245B5D0E0044669C /* SceneDelegate.swift */; };
+		4843E874245B5D0F0044669C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4843E873245B5D0F0044669C /* Assets.xcassets */; };
+		48596AD1245C71C9005A6E3B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48596AD0245C71C9005A6E3B /* WelcomeViewController.swift */; };
+		48C20EF424D3478F00318C2D /* ManageTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C20EF324D3478F00318C2D /* ManageTeamViewController.swift */; };
+		806325E626266E9800767F50 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806325E426266E9800767F50 /* RoomViewController.swift */; };
+		806325E726266E9800767F50 /* RoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806325E526266E9800767F50 /* RoomViewController.xib */; };
+		806325F52629497300767F50 /* ImagePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806325F32629497100767F50 /* ImagePickViewController.swift */; };
+		806325F62629497300767F50 /* ImagePickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806325F42629497200767F50 /* ImagePickViewController.xib */; };
+		8063266D262D112600767F50 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063266B262D112400767F50 /* EmployeeViewController.swift */; };
+		8063266E262D112600767F50 /* EmployeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8063266C262D112400767F50 /* EmployeeViewController.xib */; };
+		8063E8F0262FEF66002933AC /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063E8EF262FEF66002933AC /* ARViewController.swift */; };
+		806FCCA52606D74B00B420AB /* AddCustomerFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FCCA42606D74B00B420AB /* AddCustomerFormController.swift */; };
+		809A829C263C839D005013A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80632675262FA96100767F50 /* LaunchScreen.storyboard */; };
+		809A829F264607E9005013A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809A829E264607E9005013A3 /* Main.storyboard */; };
+		80DFF60326193E1C0018E463 /* DisplayCustInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFF60126193E150018E463 /* DisplayCustInfoViewController.swift */; };
+		80DFF60426193E1C0018E463 /* DisplayCustInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80DFF60226193E170018E463 /* DisplayCustInfoViewController.xib */; };
+		AC062DC826A37F12007E0891 /* RTABMapApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DB826A37F12007E0891 /* RTABMapApp.cpp */; };
+		AC062DC926A37F12007E0891 /* point_cloud_drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DB926A37F12007E0891 /* point_cloud_drawable.cpp */; };
+		AC062DCA26A37F12007E0891 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DBA26A37F12007E0891 /* scene.cpp */; };
+		AC062DCB26A37F12007E0891 /* graph_drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DBB26A37F12007E0891 /* graph_drawable.cpp */; };
+		AC062DCC26A37F12007E0891 /* NativeWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DBD26A37F12007E0891 /* NativeWrapper.cpp */; };
+		AC062DCD26A37F12007E0891 /* background_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = AC062DC426A37F12007E0891 /* background_renderer.cc */; };
+		AC062DCE26A37F12007E0891 /* CameraMobile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062DC626A37F12007E0891 /* CameraMobile.cpp */; };
+		AC062EA726A38FF2007E0891 /* line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7326A38FF1007E0891 /* line.cpp */; };
+		AC062EA826A38FF2007E0891 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7426A38FF1007E0891 /* util.cpp */; };
+		AC062EA926A38FF2007E0891 /* obj_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7526A38FF1007E0891 /* obj_loader.cpp */; };
+		AC062EAA26A38FF2007E0891 /* bounding_box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7626A38FF1007E0891 /* bounding_box.cpp */; };
+		AC062EAB26A38FF2007E0891 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7726A38FF1007E0891 /* mesh.cpp */; };
+		AC062EAC26A38FF2007E0891 /* axis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7826A38FF1007E0891 /* axis.cpp */; };
+		AC062EAD26A38FF2007E0891 /* segment_drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7926A38FF1007E0891 /* segment_drawable.cpp */; };
+		AC062EAE26A38FF2007E0891 /* conversions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7A26A38FF1007E0891 /* conversions.cpp */; };
+		AC062EAF26A38FF2007E0891 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E7B26A38FF1007E0891 /* camera.cpp */; };
+		AC062EB026A38FF2007E0891 /* gesture_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9826A38FF2007E0891 /* gesture_camera.cpp */; };
+		AC062EB126A38FF2007E0891 /* trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9926A38FF2007E0891 /* trace.cpp */; };
+		AC062EB226A38FF2007E0891 /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9A26A38FF2007E0891 /* texture.cpp */; };
+		AC062EB326A38FF2007E0891 /* quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9B26A38FF2007E0891 /* quad.cpp */; };
+		AC062EB426A38FF2007E0891 /* drawable_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9C26A38FF2007E0891 /* drawable_object.cpp */; };
+		AC062EB526A38FF2007E0891 /* frustum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9D26A38FF2007E0891 /* frustum.cpp */; };
+		AC062EB626A38FF2007E0891 /* shaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9E26A38FF2007E0891 /* shaders.cpp */; };
+		AC062EB726A38FF2007E0891 /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062E9F26A38FF2007E0891 /* transform.cpp */; };
+		AC062EB926A38FF2007E0891 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA126A38FF2007E0891 /* grid.cpp */; };
+		AC062EBA26A38FF2007E0891 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA226A38FF2007E0891 /* triangle.cpp */; };
+		AC062EBB26A38FF2007E0891 /* circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA326A38FF2007E0891 /* circle.cpp */; };
+		AC062EBC26A38FF2007E0891 /* cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA426A38FF2007E0891 /* cube.cpp */; };
+		AC062EBD26A38FF2007E0891 /* goal_marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA526A38FF2007E0891 /* goal_marker.cpp */; };
+		AC062EBE26A38FF2007E0891 /* band.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC062EA626A38FF2007E0891 /* band.cpp */; };
+		AC062EC326A395CE007E0891 /* libopencv_imgcodecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC062EC126A395CE007E0891 /* libopencv_imgcodecs.a */; };
+		AC062ECB26A39F27007E0891 /* liblibprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC062EC726A39F27007E0891 /* liblibprotobuf.a */; };
+		AC062ECC26A39F27007E0891 /* liblibjpeg-turbo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC062EC826A39F27007E0891 /* liblibjpeg-turbo.a */; };
+		AC062ECD26A39F27007E0891 /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC062EC926A39F27007E0891 /* liblibwebp.a */; };
+		AC09346E26840BC50032BB37 /* commonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09346D26840BC50032BB37 /* commonData.swift */; };
+		AC09347326859E1B0032BB37 /* BoxSDK in Frameworks */ = {isa = PBXBuildFile; productRef = AC09347226859E1B0032BB37 /* BoxSDK */; };
+		AC0934B7268668160032BB37 /* BoxSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0934B6268668160032BB37 /* BoxSyncViewController.swift */; };
+		AC0934B9268668F60032BB37 /* BoxBasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0934B8268668F60032BB37 /* BoxBasicErrorView.swift */; };
+		AC0934BB268669EB0032BB37 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0934BA268669EB0032BB37 /* Constants.swift */; };
+		AC0934BF268696910032BB37 /* BoxSync.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0934BE268696910032BB37 /* BoxSync.storyboard */; };
+		AC32582826A3363800C169A2 /* libopencv_ccalib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C326A3363600C169A2 /* libopencv_ccalib.a */; };
+		AC32582926A3363800C169A2 /* libboost_signals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C426A3363600C169A2 /* libboost_signals.a */; };
+		AC32582A26A3363800C169A2 /* libopencv_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C526A3363600C169A2 /* libopencv_objdetect.a */; };
+		AC32582B26A3363800C169A2 /* libg2o_csparse_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C626A3363600C169A2 /* libg2o_csparse_extension.a */; };
+		AC32582C26A3363800C169A2 /* libpcl_features.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C726A3363600C169A2 /* libpcl_features.a */; };
+		AC32582D26A3363800C169A2 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C826A3363600C169A2 /* libboost_filesystem.a */; };
+		AC32582E26A3363800C169A2 /* libg2o_types_data.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C926A3363600C169A2 /* libg2o_types_data.a */; };
+		AC32582F26A3363800C169A2 /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CA26A3363600C169A2 /* libboost_date_time.a */; };
+		AC32583026A3363800C169A2 /* libg2o_types_slam2d_addons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CB26A3363600C169A2 /* libg2o_types_slam2d_addons.a */; };
+		AC32583126A3363800C169A2 /* libopencv_plot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CC26A3363600C169A2 /* libopencv_plot.a */; };
+		AC32583226A3363800C169A2 /* libopencv_flann.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CD26A3363600C169A2 /* libopencv_flann.a */; };
+		AC32583326A3363800C169A2 /* libg2o_types_slam2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CE26A3363600C169A2 /* libg2o_types_slam2d.a */; };
+		AC32583426A3363800C169A2 /* librtabmap_utilite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257CF26A3363600C169A2 /* librtabmap_utilite.a */; };
+		AC32583526A3363800C169A2 /* libboost_program_options.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D026A3363600C169A2 /* libboost_program_options.a */; };
+		AC32583626A3363800C169A2 /* libg2o_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D126A3363600C169A2 /* libg2o_core.a */; };
+		AC32583726A3363800C169A2 /* libopencv_stitching.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D226A3363600C169A2 /* libopencv_stitching.a */; };
+		AC32583826A3363800C169A2 /* libopencv_videostab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D326A3363600C169A2 /* libopencv_videostab.a */; };
+		AC32583A26A3363800C169A2 /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D526A3363600C169A2 /* libboost_serialization.a */; };
+		AC32583B26A3363800C169A2 /* libopencv_calib3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D626A3363600C169A2 /* libopencv_calib3d.a */; };
+		AC32583C26A3363800C169A2 /* libboost_chrono.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D726A3363600C169A2 /* libboost_chrono.a */; };
+		AC32583D26A3363800C169A2 /* libopencv_dnn_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D826A3363600C169A2 /* libopencv_dnn_objdetect.a */; };
+		AC32583E26A3363800C169A2 /* libopencv_surface_matching.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257D926A3363600C169A2 /* libopencv_surface_matching.a */; };
+		AC32583F26A3363800C169A2 /* libpcl_tracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257DA26A3363600C169A2 /* libpcl_tracking.a */; };
+		AC32584026A3363800C169A2 /* libopencv_line_descriptor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257DB26A3363600C169A2 /* libopencv_line_descriptor.a */; };
+		AC32584126A3363800C169A2 /* libg2o_solver_csparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257DC26A3363600C169A2 /* libg2o_solver_csparse.a */; };
+		AC32584326A3363800C169A2 /* libopencv_xfeatures2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257DE26A3363600C169A2 /* libopencv_xfeatures2d.a */; };
+		AC32584426A3363800C169A2 /* libpcl_ml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257DF26A3363600C169A2 /* libpcl_ml.a */; };
+		AC32584526A3363800C169A2 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E026A3363600C169A2 /* libopencv_imgproc.a */; };
+		AC32584626A3363800C169A2 /* libpcl_stereo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E126A3363600C169A2 /* libpcl_stereo.a */; };
+		AC32584726A3363800C169A2 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E226A3363600C169A2 /* libboost_system.a */; };
+		AC32584826A3363800C169A2 /* libpcl_sample_consensus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E326A3363600C169A2 /* libpcl_sample_consensus.a */; };
+		AC32584926A3363800C169A2 /* libopencv_optflow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E426A3363600C169A2 /* libopencv_optflow.a */; };
+		AC32584A26A3363800C169A2 /* libboost_regex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E526A3363600C169A2 /* libboost_regex.a */; };
+		AC32584B26A3363800C169A2 /* libboost_timer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E626A3363600C169A2 /* libboost_timer.a */; };
+		AC32584C26A3363800C169A2 /* libopencv_dpm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E726A3363600C169A2 /* libopencv_dpm.a */; };
+		AC32584D26A3363800C169A2 /* libg2o_ext_csparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E826A3363600C169A2 /* libg2o_ext_csparse.a */; };
+		AC32584E26A3363800C169A2 /* libpcl_common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257E926A3363600C169A2 /* libpcl_common.a */; };
+		AC32584F26A3363800C169A2 /* libg2o_solver_eigen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257EA26A3363600C169A2 /* libg2o_solver_eigen.a */; };
+		AC32585026A3363800C169A2 /* libopencv_reg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257EB26A3363600C169A2 /* libopencv_reg.a */; };
+		AC32585126A3363800C169A2 /* libpcl_octree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257EC26A3363600C169A2 /* libpcl_octree.a */; };
+		AC32585226A3363800C169A2 /* libopencv_fuzzy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257ED26A3363600C169A2 /* libopencv_fuzzy.a */; };
+		AC32585326A3363800C169A2 /* libopencv_xphoto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257EE26A3363600C169A2 /* libopencv_xphoto.a */; };
+		AC32585426A3363800C169A2 /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257EF26A3363600C169A2 /* libboost_iostreams.a */; };
+		AC32585526A3363800C169A2 /* libqhullstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F026A3363600C169A2 /* libqhullstatic.a */; };
+		AC32585626A3363800C169A2 /* libg2o_solver_dense.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F126A3363600C169A2 /* libg2o_solver_dense.a */; };
+		AC32585726A3363800C169A2 /* libpcl_registration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F226A3363600C169A2 /* libpcl_registration.a */; };
+		AC32585826A3363800C169A2 /* libopencv_bioinspired.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F326A3363600C169A2 /* libopencv_bioinspired.a */; };
+		AC32585926A3363800C169A2 /* libg2o_types_icp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F426A3363600C169A2 /* libg2o_types_icp.a */; };
+		AC32585A26A3363800C169A2 /* libmetis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F526A3363600C169A2 /* libmetis.a */; };
+		AC32585B26A3363800C169A2 /* libopencv_hfs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F626A3363600C169A2 /* libopencv_hfs.a */; };
+		AC32585C26A3363800C169A2 /* libopencv_dnn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F726A3363600C169A2 /* libopencv_dnn.a */; };
+		AC32585D26A3363800C169A2 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F826A3363600C169A2 /* libzlib.a */; };
+		AC32585E26A3363800C169A2 /* libopencv_structured_light.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257F926A3363600C169A2 /* libopencv_structured_light.a */; };
+		AC32585F26A3363800C169A2 /* libpcl_segmentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257FA26A3363600C169A2 /* libpcl_segmentation.a */; };
+		AC32586026A3363800C169A2 /* libqhullcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257FB26A3363600C169A2 /* libqhullcpp.a */; };
+		AC32586226A3363800C169A2 /* libg2o_stuff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257FD26A3363600C169A2 /* libg2o_stuff.a */; };
+		AC32586326A3363800C169A2 /* libopencv_face.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257FE26A3363700C169A2 /* libopencv_face.a */; };
+		AC32586426A3363800C169A2 /* libpcl_io.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257FF26A3363700C169A2 /* libpcl_io.a */; };
+		AC32586526A3363800C169A2 /* libpcl_recognition.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580026A3363700C169A2 /* libpcl_recognition.a */; };
+		AC32586626A3363800C169A2 /* libopencv_ximgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580126A3363700C169A2 /* libopencv_ximgproc.a */; };
+		AC32586726A3363800C169A2 /* libopencv_aruco.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580226A3363700C169A2 /* libopencv_aruco.a */; };
+		AC32586826A3363800C169A2 /* librtabmap_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580326A3363700C169A2 /* librtabmap_core.a */; };
+		AC32586926A3363800C169A2 /* libopencv_img_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580426A3363700C169A2 /* libopencv_img_hash.a */; };
+		AC32586A26A3363800C169A2 /* libgtsam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580526A3363700C169A2 /* libgtsam.a */; };
+		AC32586B26A3363800C169A2 /* libopencv_text.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580626A3363700C169A2 /* libopencv_text.a */; };
+		AC32586C26A3363800C169A2 /* libg2o_types_sba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580726A3363700C169A2 /* libg2o_types_sba.a */; };
+		AC32586D26A3363800C169A2 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580826A3363700C169A2 /* libopencv_core.a */; };
+		AC32586E26A3363800C169A2 /* libg2o_types_sclam2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580926A3363700C169A2 /* libg2o_types_sclam2d.a */; };
+		AC32587026A3363800C169A2 /* libpcl_filters.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580B26A3363700C169A2 /* libpcl_filters.a */; };
+		AC32587126A3363800C169A2 /* libopencv_phase_unwrapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580C26A3363700C169A2 /* libopencv_phase_unwrapping.a */; };
+		AC32587226A3363800C169A2 /* libg2o_types_sim3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580D26A3363700C169A2 /* libg2o_types_sim3.a */; };
+		AC32587326A3363800C169A2 /* libopencv_rgbd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580E26A3363700C169A2 /* libopencv_rgbd.a */; };
+		AC32587426A3363800C169A2 /* libpcl_surface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32580F26A3363700C169A2 /* libpcl_surface.a */; };
+		AC32587526A3363800C169A2 /* libflann_cpp_s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581026A3363700C169A2 /* libflann_cpp_s.a */; };
+		AC32587626A3363800C169A2 /* libopencv_photo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581126A3363700C169A2 /* libopencv_photo.a */; };
+		AC32587726A3363800C169A2 /* libpcl_kdtree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581226A3363700C169A2 /* libpcl_kdtree.a */; };
+		AC32587826A3363800C169A2 /* libopencv_features2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581326A3363700C169A2 /* libopencv_features2d.a */; };
+		AC32587926A3363800C169A2 /* libg2o_solver_pcg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581426A3363700C169A2 /* libg2o_solver_pcg.a */; };
+		AC32587A26A3363800C169A2 /* libopencv_highgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581526A3363700C169A2 /* libopencv_highgui.a */; };
+		AC32587B26A3363800C169A2 /* libpcl_keypoints.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581626A3363700C169A2 /* libpcl_keypoints.a */; };
+		AC32587C26A3363800C169A2 /* libg2o_types_slam3d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581726A3363700C169A2 /* libg2o_types_slam3d.a */; };
+		AC32587D26A3363800C169A2 /* libopencv_saliency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581826A3363700C169A2 /* libopencv_saliency.a */; };
+		AC32587E26A3363800C169A2 /* libopencv_videoio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581926A3363700C169A2 /* libopencv_videoio.a */; };
+		AC32587F26A3363800C169A2 /* libopencv_video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581A26A3363700C169A2 /* libopencv_video.a */; };
+		AC32588026A3363800C169A2 /* libpcl_search.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581B26A3363700C169A2 /* libpcl_search.a */; };
+		AC32588126A3363800C169A2 /* libgtsam_unstable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581C26A3363700C169A2 /* libgtsam_unstable.a */; };
+		AC32588226A3363800C169A2 /* libopencv_ml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581D26A3363700C169A2 /* libopencv_ml.a */; };
+		AC32588326A3363800C169A2 /* libopencv_shape.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581E26A3363700C169A2 /* libopencv_shape.a */; };
+		AC32588426A3363800C169A2 /* libg2o_types_slam3d_addons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32581F26A3363700C169A2 /* libg2o_types_slam3d_addons.a */; };
+		AC32588526A3363800C169A2 /* libopencv_tracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582026A3363700C169A2 /* libopencv_tracking.a */; };
+		AC32588626A3363800C169A2 /* libpcl_io_ply.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582126A3363700C169A2 /* libpcl_io_ply.a */; };
+		AC32588726A3363800C169A2 /* libg2o_solver_slam2d_linear.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582226A3363700C169A2 /* libg2o_solver_slam2d_linear.a */; };
+		AC32588826A3363800C169A2 /* libqhullstatic_r.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582326A3363700C169A2 /* libqhullstatic_r.a */; };
+		AC32588926A3363800C169A2 /* libopencv_bgsegm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582426A3363800C169A2 /* libopencv_bgsegm.a */; };
+		AC32588A26A3363800C169A2 /* libg2o_solver_structure_only.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582526A3363800C169A2 /* libg2o_solver_structure_only.a */; };
+		AC32588B26A3363800C169A2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582626A3363800C169A2 /* libboost_thread.a */; };
+		AC32588C26A3363800C169A2 /* libopencv_datasets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32582726A3363800C169A2 /* libopencv_datasets.a */; };
+		AC32588E26A3379C00C169A2 /* vtk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32588D26A3379C00C169A2 /* vtk.framework */; };
+		AC32589226A33A4200C169A2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC32589126A33A4200C169A2 /* OpenGLES.framework */; };
+		AC46DAF02693B64B00D89070 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46DAEF2693B64B00D89070 /* DesignableView.swift */; };
+		AC46DAF22695002000D89070 /* LoginAndSignup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC46DAF12695002000D89070 /* LoginAndSignup.storyboard */; };
+		AC79FAA4269906A600680A07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FAA3269906A600680A07 /* LoginViewController.swift */; };
+		AC79FAFD269915B900680A07 /* MathsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FAF9269915B900680A07 /* MathsHelpers.swift */; };
+		AC79FAFE269915B900680A07 /* ARSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FAFA269915B900680A07 /* ARSettings.swift */; };
+		AC79FAFF269915B900680A07 /* ARSCNView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FAFB269915B900680A07 /* ARSCNView+Extensions.swift */; };
+		AC79FB00269915B900680A07 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FAFC269915B900680A07 /* RoundButton.swift */; };
+		AC79FB05269915E100680A07 /* MeasuringLineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB02269915E100680A07 /* MeasuringLineNode.swift */; };
+		AC79FB06269915E100680A07 /* MarkerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB03269915E100680A07 /* MarkerNode.swift */; };
+		AC79FB07269915E100680A07 /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB04269915E100680A07 /* TextNode.swift */; };
+		AC79FB7026A25C6000680A07 /* LidarScanModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB6826A25C6000680A07 /* LidarScanModuleViewController.swift */; };
+		AC79FB7426A25C6000680A07 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB6C26A25C6000680A07 /* DatabaseView.swift */; };
+		AC79FB7526A25C6000680A07 /* LidarScanModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC79FB6D26A25C6000680A07 /* LidarScanModule.storyboard */; };
+		AC79FB7626A25C6000680A07 /* RTABMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FB6F26A25C6000680A07 /* RTABMap.swift */; };
+		AC86609B26980087001628B9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC86609A26980087001628B9 /* Settings.bundle */; };
+		AC8660B3269800F7001628B9 /* VerticalScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8660A8269800F7001628B9 /* VerticalScrollerView.swift */; };
+		AC8660B726980727001628B9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = AC8660B626980727001628B9 /* Zip */; };
+		ACF4189D2687C00000313292 /* BoxPreviewSDK in Frameworks */ = {isa = PBXBuildFile; productRef = ACF4189C2687C00000313292 /* BoxPreviewSDK */; };
+		ACF418A72689246900313292 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF418A62689246900313292 /* ImageViewController.swift */; };
+		ACF418AF268933B000313292 /* ImageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF418AE268933B000313292 /* ImageView.storyboard */; };
+		B66AA2F92250798A521EAB5A /* Pods_Carrt_Measure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A7B9B1641333C52C5C93FD /* Pods_Carrt_Measure.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		480BEB6D24648D72008819D9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4811570324606894004D0683 /* ProjectsViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		4843E867245B5D0E0044669C /* Carrt Measure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carrt Measure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4843E86A245B5D0E0044669C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4843E86C245B5D0E0044669C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4843E873245B5D0F0044669C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4843E878245B5D0F0044669C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48596AD0245C71C9005A6E3B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		48C20EF324D3478F00318C2D /* ManageTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamViewController.swift; sourceTree = "<group>"; };
+		7185ED498A18BC4AAD887B92 /* Pods-Carrt Measure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carrt Measure.debug.xcconfig"; path = "Target Support Files/Pods-Carrt Measure/Pods-Carrt Measure.debug.xcconfig"; sourceTree = "<group>"; };
+		806325E426266E9800767F50 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		806325E526266E9800767F50 /* RoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewController.xib; sourceTree = "<group>"; };
+		806325F32629497100767F50 /* ImagePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickViewController.swift; sourceTree = "<group>"; };
+		806325F42629497200767F50 /* ImagePickViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickViewController.xib; sourceTree = "<group>"; };
+		8063266B262D112400767F50 /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
+		8063266C262D112400767F50 /* EmployeeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeViewController.xib; sourceTree = "<group>"; };
+		80632675262FA96100767F50 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8063E8EF262FEF66002933AC /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		806FCCA42606D74B00B420AB /* AddCustomerFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerFormController.swift; sourceTree = "<group>"; };
+		809A829E264607E9005013A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		80DFF60126193E150018E463 /* DisplayCustInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCustInfoViewController.swift; sourceTree = "<group>"; };
+		80DFF60226193E170018E463 /* DisplayCustInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayCustInfoViewController.xib; sourceTree = "<group>"; };
+		AC062DB726A37F12007E0891 /* bounding_box_drawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounding_box_drawable.h; sourceTree = "<group>"; };
+		AC062DB826A37F12007E0891 /* RTABMapApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTABMapApp.cpp; sourceTree = "<group>"; };
+		AC062DB926A37F12007E0891 /* point_cloud_drawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point_cloud_drawable.cpp; sourceTree = "<group>"; };
+		AC062DBA26A37F12007E0891 /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
+		AC062DBB26A37F12007E0891 /* graph_drawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graph_drawable.cpp; sourceTree = "<group>"; };
+		AC062DBC26A37F12007E0891 /* graph_drawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graph_drawable.h; sourceTree = "<group>"; };
+		AC062DBD26A37F12007E0891 /* NativeWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NativeWrapper.cpp; sourceTree = "<group>"; };
+		AC062DBE26A37F12007E0891 /* point_cloud_drawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_cloud_drawable.h; sourceTree = "<group>"; };
+		AC062DBF26A37F12007E0891 /* NativeWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NativeWrapper.hpp; sourceTree = "<group>"; };
+		AC062DC026A37F12007E0891 /* CameraMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraMobile.h; sourceTree = "<group>"; };
+		AC062DC126A37F12007E0891 /* background_renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = background_renderer.h; sourceTree = "<group>"; };
+		AC062DC226A37F12007E0891 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		AC062DC326A37F12007E0891 /* ProgressionStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressionStatus.h; sourceTree = "<group>"; };
+		AC062DC426A37F12007E0891 /* background_renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = background_renderer.cc; sourceTree = "<group>"; };
+		AC062DC526A37F12007E0891 /* RTABMapApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTABMapApp.h; sourceTree = "<group>"; };
+		AC062DC626A37F12007E0891 /* CameraMobile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraMobile.cpp; sourceTree = "<group>"; };
+		AC062DC726A37F12007E0891 /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
+		AC062E7326A38FF1007E0891 /* line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = line.cpp; sourceTree = "<group>"; };
+		AC062E7426A38FF1007E0891 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		AC062E7526A38FF1007E0891 /* obj_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = obj_loader.cpp; sourceTree = "<group>"; };
+		AC062E7626A38FF1007E0891 /* bounding_box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bounding_box.cpp; sourceTree = "<group>"; };
+		AC062E7726A38FF1007E0891 /* mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
+		AC062E7826A38FF1007E0891 /* axis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = axis.cpp; sourceTree = "<group>"; };
+		AC062E7926A38FF1007E0891 /* segment_drawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = segment_drawable.cpp; sourceTree = "<group>"; };
+		AC062E7A26A38FF1007E0891 /* conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conversions.cpp; sourceTree = "<group>"; };
+		AC062E7B26A38FF1007E0891 /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
+		AC062E7E26A38FF1007E0891 /* axis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = axis.h; sourceTree = "<group>"; };
+		AC062E7F26A38FF1007E0891 /* band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = band.h; sourceTree = "<group>"; };
+		AC062E8026A38FF1007E0891 /* conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conversions.h; sourceTree = "<group>"; };
+		AC062E8126A38FF1007E0891 /* segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segment.h; sourceTree = "<group>"; };
+		AC062E8226A38FF1007E0891 /* circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = circle.h; sourceTree = "<group>"; };
+		AC062E8326A38FF1007E0891 /* gesture_camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gesture_camera.h; sourceTree = "<group>"; };
+		AC062E8426A38FF1007E0891 /* quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quad.h; sourceTree = "<group>"; };
+		AC062E8526A38FF1007E0891 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		AC062E8626A38FF1007E0891 /* frustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frustum.h; sourceTree = "<group>"; };
+		AC062E8726A38FF1007E0891 /* color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
+		AC062E8826A38FF1007E0891 /* shaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shaders.h; sourceTree = "<group>"; };
+		AC062E8926A38FF1007E0891 /* mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
+		AC062E8A26A38FF1007E0891 /* grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grid.h; sourceTree = "<group>"; };
+		AC062E8B26A38FF1007E0891 /* cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cube.h; sourceTree = "<group>"; };
+		AC062E8C26A38FF2007E0891 /* trace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trace.h; sourceTree = "<group>"; };
+		AC062E8D26A38FF2007E0891 /* transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transform.h; sourceTree = "<group>"; };
+		AC062E8E26A38FF2007E0891 /* goal_marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goal_marker.h; sourceTree = "<group>"; };
+		AC062E8F26A38FF2007E0891 /* segment_drawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segment_drawable.h; sourceTree = "<group>"; };
+		AC062E9026A38FF2007E0891 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		AC062E9126A38FF2007E0891 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
+		AC062E9226A38FF2007E0891 /* line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = line.h; sourceTree = "<group>"; };
+		AC062E9326A38FF2007E0891 /* video_overlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video_overlay.h; sourceTree = "<group>"; };
+		AC062E9426A38FF2007E0891 /* texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture.h; sourceTree = "<group>"; };
+		AC062E9526A38FF2007E0891 /* obj_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_loader.h; sourceTree = "<group>"; };
+		AC062E9626A38FF2007E0891 /* drawable_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawable_object.h; sourceTree = "<group>"; };
+		AC062E9726A38FF2007E0891 /* bounding_box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounding_box.h; sourceTree = "<group>"; };
+		AC062E9826A38FF2007E0891 /* gesture_camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gesture_camera.cpp; sourceTree = "<group>"; };
+		AC062E9926A38FF2007E0891 /* trace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = trace.cpp; sourceTree = "<group>"; };
+		AC062E9A26A38FF2007E0891 /* texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texture.cpp; sourceTree = "<group>"; };
+		AC062E9B26A38FF2007E0891 /* quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quad.cpp; sourceTree = "<group>"; };
+		AC062E9C26A38FF2007E0891 /* drawable_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawable_object.cpp; sourceTree = "<group>"; };
+		AC062E9D26A38FF2007E0891 /* frustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frustum.cpp; sourceTree = "<group>"; };
+		AC062E9E26A38FF2007E0891 /* shaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shaders.cpp; sourceTree = "<group>"; };
+		AC062E9F26A38FF2007E0891 /* transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
+		AC062EA126A38FF2007E0891 /* grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid.cpp; sourceTree = "<group>"; };
+		AC062EA226A38FF2007E0891 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
+		AC062EA326A38FF2007E0891 /* circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = circle.cpp; sourceTree = "<group>"; };
+		AC062EA426A38FF2007E0891 /* cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cube.cpp; sourceTree = "<group>"; };
+		AC062EA526A38FF2007E0891 /* goal_marker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = goal_marker.cpp; sourceTree = "<group>"; };
+		AC062EA626A38FF2007E0891 /* band.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = band.cpp; sourceTree = "<group>"; };
+		AC062EBF26A393D2007E0891 /* libopencv_contrib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_contrib.a; path = "carrt measure/Libraries/lib/libopencv_contrib.a"; sourceTree = "<group>"; };
+		AC062EC126A395CE007E0891 /* libopencv_imgcodecs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgcodecs.a; path = "carrt measure/Libraries/lib/libopencv_imgcodecs.a"; sourceTree = "<group>"; };
+		AC062EC726A39F27007E0891 /* liblibprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibprotobuf.a; path = "carrt measure/Libraries/lib/liblibprotobuf.a"; sourceTree = "<group>"; };
+		AC062EC826A39F27007E0891 /* liblibjpeg-turbo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liblibjpeg-turbo.a"; path = "carrt measure/Libraries/lib/liblibjpeg-turbo.a"; sourceTree = "<group>"; };
+		AC062EC926A39F27007E0891 /* liblibwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibwebp.a; path = "carrt measure/Libraries/lib/liblibwebp.a"; sourceTree = "<group>"; };
+		AC09346D26840BC50032BB37 /* commonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonData.swift; sourceTree = "<group>"; };
+		AC0934B6268668160032BB37 /* BoxSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSyncViewController.swift; sourceTree = "<group>"; };
+		AC0934B8268668F60032BB37 /* BoxBasicErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxBasicErrorView.swift; sourceTree = "<group>"; };
+		AC0934BA268669EB0032BB37 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AC0934BE268696910032BB37 /* BoxSync.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxSync.storyboard; sourceTree = "<group>"; };
+		AC3257C326A3363600C169A2 /* libopencv_ccalib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_ccalib.a; path = "carrt measure/Libraries/lib/libopencv_ccalib.a"; sourceTree = "<group>"; };
+		AC3257C426A3363600C169A2 /* libboost_signals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_signals.a; path = "carrt measure/Libraries/lib/libboost_signals.a"; sourceTree = "<group>"; };
+		AC3257C526A3363600C169A2 /* libopencv_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_objdetect.a; path = "carrt measure/Libraries/lib/libopencv_objdetect.a"; sourceTree = "<group>"; };
+		AC3257C626A3363600C169A2 /* libg2o_csparse_extension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_csparse_extension.a; path = "carrt measure/Libraries/lib/libg2o_csparse_extension.a"; sourceTree = "<group>"; };
+		AC3257C726A3363600C169A2 /* libpcl_features.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_features.a; path = "carrt measure/Libraries/lib/libpcl_features.a"; sourceTree = "<group>"; };
+		AC3257C826A3363600C169A2 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = "carrt measure/Libraries/lib/libboost_filesystem.a"; sourceTree = "<group>"; };
+		AC3257C926A3363600C169A2 /* libg2o_types_data.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_data.a; path = "carrt measure/Libraries/lib/libg2o_types_data.a"; sourceTree = "<group>"; };
+		AC3257CA26A3363600C169A2 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = "carrt measure/Libraries/lib/libboost_date_time.a"; sourceTree = "<group>"; };
+		AC3257CB26A3363600C169A2 /* libg2o_types_slam2d_addons.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_slam2d_addons.a; path = "carrt measure/Libraries/lib/libg2o_types_slam2d_addons.a"; sourceTree = "<group>"; };
+		AC3257CC26A3363600C169A2 /* libopencv_plot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_plot.a; path = "carrt measure/Libraries/lib/libopencv_plot.a"; sourceTree = "<group>"; };
+		AC3257CD26A3363600C169A2 /* libopencv_flann.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_flann.a; path = "carrt measure/Libraries/lib/libopencv_flann.a"; sourceTree = "<group>"; };
+		AC3257CE26A3363600C169A2 /* libg2o_types_slam2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_slam2d.a; path = "carrt measure/Libraries/lib/libg2o_types_slam2d.a"; sourceTree = "<group>"; };
+		AC3257CF26A3363600C169A2 /* librtabmap_utilite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtabmap_utilite.a; path = "carrt measure/Libraries/lib/librtabmap_utilite.a"; sourceTree = "<group>"; };
+		AC3257D026A3363600C169A2 /* libboost_program_options.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_program_options.a; path = "carrt measure/Libraries/lib/libboost_program_options.a"; sourceTree = "<group>"; };
+		AC3257D126A3363600C169A2 /* libg2o_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_core.a; path = "carrt measure/Libraries/lib/libg2o_core.a"; sourceTree = "<group>"; };
+		AC3257D226A3363600C169A2 /* libopencv_stitching.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_stitching.a; path = "carrt measure/Libraries/lib/libopencv_stitching.a"; sourceTree = "<group>"; };
+		AC3257D326A3363600C169A2 /* libopencv_videostab.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_videostab.a; path = "carrt measure/Libraries/lib/libopencv_videostab.a"; sourceTree = "<group>"; };
+		AC3257D526A3363600C169A2 /* libboost_serialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_serialization.a; path = "carrt measure/Libraries/lib/libboost_serialization.a"; sourceTree = "<group>"; };
+		AC3257D626A3363600C169A2 /* libopencv_calib3d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_calib3d.a; path = "carrt measure/Libraries/lib/libopencv_calib3d.a"; sourceTree = "<group>"; };
+		AC3257D726A3363600C169A2 /* libboost_chrono.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_chrono.a; path = "carrt measure/Libraries/lib/libboost_chrono.a"; sourceTree = "<group>"; };
+		AC3257D826A3363600C169A2 /* libopencv_dnn_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_dnn_objdetect.a; path = "carrt measure/Libraries/lib/libopencv_dnn_objdetect.a"; sourceTree = "<group>"; };
+		AC3257D926A3363600C169A2 /* libopencv_surface_matching.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_surface_matching.a; path = "carrt measure/Libraries/lib/libopencv_surface_matching.a"; sourceTree = "<group>"; };
+		AC3257DA26A3363600C169A2 /* libpcl_tracking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_tracking.a; path = "carrt measure/Libraries/lib/libpcl_tracking.a"; sourceTree = "<group>"; };
+		AC3257DB26A3363600C169A2 /* libopencv_line_descriptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_line_descriptor.a; path = "carrt measure/Libraries/lib/libopencv_line_descriptor.a"; sourceTree = "<group>"; };
+		AC3257DC26A3363600C169A2 /* libg2o_solver_csparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_csparse.a; path = "carrt measure/Libraries/lib/libg2o_solver_csparse.a"; sourceTree = "<group>"; };
+		AC3257DE26A3363600C169A2 /* libopencv_xfeatures2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_xfeatures2d.a; path = "carrt measure/Libraries/lib/libopencv_xfeatures2d.a"; sourceTree = "<group>"; };
+		AC3257DF26A3363600C169A2 /* libpcl_ml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_ml.a; path = "carrt measure/Libraries/lib/libpcl_ml.a"; sourceTree = "<group>"; };
+		AC3257E026A3363600C169A2 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = "carrt measure/Libraries/lib/libopencv_imgproc.a"; sourceTree = "<group>"; };
+		AC3257E126A3363600C169A2 /* libpcl_stereo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_stereo.a; path = "carrt measure/Libraries/lib/libpcl_stereo.a"; sourceTree = "<group>"; };
+		AC3257E226A3363600C169A2 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = "carrt measure/Libraries/lib/libboost_system.a"; sourceTree = "<group>"; };
+		AC3257E326A3363600C169A2 /* libpcl_sample_consensus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_sample_consensus.a; path = "carrt measure/Libraries/lib/libpcl_sample_consensus.a"; sourceTree = "<group>"; };
+		AC3257E426A3363600C169A2 /* libopencv_optflow.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_optflow.a; path = "carrt measure/Libraries/lib/libopencv_optflow.a"; sourceTree = "<group>"; };
+		AC3257E526A3363600C169A2 /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = "carrt measure/Libraries/lib/libboost_regex.a"; sourceTree = "<group>"; };
+		AC3257E626A3363600C169A2 /* libboost_timer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_timer.a; path = "carrt measure/Libraries/lib/libboost_timer.a"; sourceTree = "<group>"; };
+		AC3257E726A3363600C169A2 /* libopencv_dpm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_dpm.a; path = "carrt measure/Libraries/lib/libopencv_dpm.a"; sourceTree = "<group>"; };
+		AC3257E826A3363600C169A2 /* libg2o_ext_csparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_ext_csparse.a; path = "carrt measure/Libraries/lib/libg2o_ext_csparse.a"; sourceTree = "<group>"; };
+		AC3257E926A3363600C169A2 /* libpcl_common.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_common.a; path = "carrt measure/Libraries/lib/libpcl_common.a"; sourceTree = "<group>"; };
+		AC3257EA26A3363600C169A2 /* libg2o_solver_eigen.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_eigen.a; path = "carrt measure/Libraries/lib/libg2o_solver_eigen.a"; sourceTree = "<group>"; };
+		AC3257EB26A3363600C169A2 /* libopencv_reg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_reg.a; path = "carrt measure/Libraries/lib/libopencv_reg.a"; sourceTree = "<group>"; };
+		AC3257EC26A3363600C169A2 /* libpcl_octree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_octree.a; path = "carrt measure/Libraries/lib/libpcl_octree.a"; sourceTree = "<group>"; };
+		AC3257ED26A3363600C169A2 /* libopencv_fuzzy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_fuzzy.a; path = "carrt measure/Libraries/lib/libopencv_fuzzy.a"; sourceTree = "<group>"; };
+		AC3257EE26A3363600C169A2 /* libopencv_xphoto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_xphoto.a; path = "carrt measure/Libraries/lib/libopencv_xphoto.a"; sourceTree = "<group>"; };
+		AC3257EF26A3363600C169A2 /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = "carrt measure/Libraries/lib/libboost_iostreams.a"; sourceTree = "<group>"; };
+		AC3257F026A3363600C169A2 /* libqhullstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic.a; path = "carrt measure/Libraries/lib/libqhullstatic.a"; sourceTree = "<group>"; };
+		AC3257F126A3363600C169A2 /* libg2o_solver_dense.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_dense.a; path = "carrt measure/Libraries/lib/libg2o_solver_dense.a"; sourceTree = "<group>"; };
+		AC3257F226A3363600C169A2 /* libpcl_registration.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_registration.a; path = "carrt measure/Libraries/lib/libpcl_registration.a"; sourceTree = "<group>"; };
+		AC3257F326A3363600C169A2 /* libopencv_bioinspired.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_bioinspired.a; path = "carrt measure/Libraries/lib/libopencv_bioinspired.a"; sourceTree = "<group>"; };
+		AC3257F426A3363600C169A2 /* libg2o_types_icp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_icp.a; path = "carrt measure/Libraries/lib/libg2o_types_icp.a"; sourceTree = "<group>"; };
+		AC3257F526A3363600C169A2 /* libmetis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmetis.a; path = "carrt measure/Libraries/lib/libmetis.a"; sourceTree = "<group>"; };
+		AC3257F626A3363600C169A2 /* libopencv_hfs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_hfs.a; path = "carrt measure/Libraries/lib/libopencv_hfs.a"; sourceTree = "<group>"; };
+		AC3257F726A3363600C169A2 /* libopencv_dnn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_dnn.a; path = "carrt measure/Libraries/lib/libopencv_dnn.a"; sourceTree = "<group>"; };
+		AC3257F826A3363600C169A2 /* libzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlib.a; path = "carrt measure/Libraries/lib/libzlib.a"; sourceTree = "<group>"; };
+		AC3257F926A3363600C169A2 /* libopencv_structured_light.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_structured_light.a; path = "carrt measure/Libraries/lib/libopencv_structured_light.a"; sourceTree = "<group>"; };
+		AC3257FA26A3363600C169A2 /* libpcl_segmentation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_segmentation.a; path = "carrt measure/Libraries/lib/libpcl_segmentation.a"; sourceTree = "<group>"; };
+		AC3257FB26A3363600C169A2 /* libqhullcpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullcpp.a; path = "carrt measure/Libraries/lib/libqhullcpp.a"; sourceTree = "<group>"; };
+		AC3257FD26A3363600C169A2 /* libg2o_stuff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_stuff.a; path = "carrt measure/Libraries/lib/libg2o_stuff.a"; sourceTree = "<group>"; };
+		AC3257FE26A3363700C169A2 /* libopencv_face.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_face.a; path = "carrt measure/Libraries/lib/libopencv_face.a"; sourceTree = "<group>"; };
+		AC3257FF26A3363700C169A2 /* libpcl_io.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io.a; path = "carrt measure/Libraries/lib/libpcl_io.a"; sourceTree = "<group>"; };
+		AC32580026A3363700C169A2 /* libpcl_recognition.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_recognition.a; path = "carrt measure/Libraries/lib/libpcl_recognition.a"; sourceTree = "<group>"; };
+		AC32580126A3363700C169A2 /* libopencv_ximgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_ximgproc.a; path = "carrt measure/Libraries/lib/libopencv_ximgproc.a"; sourceTree = "<group>"; };
+		AC32580226A3363700C169A2 /* libopencv_aruco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_aruco.a; path = "carrt measure/Libraries/lib/libopencv_aruco.a"; sourceTree = "<group>"; };
+		AC32580326A3363700C169A2 /* librtabmap_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librtabmap_core.a; path = "carrt measure/Libraries/lib/librtabmap_core.a"; sourceTree = "<group>"; };
+		AC32580426A3363700C169A2 /* libopencv_img_hash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_img_hash.a; path = "carrt measure/Libraries/lib/libopencv_img_hash.a"; sourceTree = "<group>"; };
+		AC32580526A3363700C169A2 /* libgtsam.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtsam.a; path = "carrt measure/Libraries/lib/libgtsam.a"; sourceTree = "<group>"; };
+		AC32580626A3363700C169A2 /* libopencv_text.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_text.a; path = "carrt measure/Libraries/lib/libopencv_text.a"; sourceTree = "<group>"; };
+		AC32580726A3363700C169A2 /* libg2o_types_sba.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_sba.a; path = "carrt measure/Libraries/lib/libg2o_types_sba.a"; sourceTree = "<group>"; };
+		AC32580826A3363700C169A2 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = "carrt measure/Libraries/lib/libopencv_core.a"; sourceTree = "<group>"; };
+		AC32580926A3363700C169A2 /* libg2o_types_sclam2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_sclam2d.a; path = "carrt measure/Libraries/lib/libg2o_types_sclam2d.a"; sourceTree = "<group>"; };
+		AC32580B26A3363700C169A2 /* libpcl_filters.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_filters.a; path = "carrt measure/Libraries/lib/libpcl_filters.a"; sourceTree = "<group>"; };
+		AC32580C26A3363700C169A2 /* libopencv_phase_unwrapping.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_phase_unwrapping.a; path = "carrt measure/Libraries/lib/libopencv_phase_unwrapping.a"; sourceTree = "<group>"; };
+		AC32580D26A3363700C169A2 /* libg2o_types_sim3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_sim3.a; path = "carrt measure/Libraries/lib/libg2o_types_sim3.a"; sourceTree = "<group>"; };
+		AC32580E26A3363700C169A2 /* libopencv_rgbd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_rgbd.a; path = "carrt measure/Libraries/lib/libopencv_rgbd.a"; sourceTree = "<group>"; };
+		AC32580F26A3363700C169A2 /* libpcl_surface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_surface.a; path = "carrt measure/Libraries/lib/libpcl_surface.a"; sourceTree = "<group>"; };
+		AC32581026A3363700C169A2 /* libflann_cpp_s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflann_cpp_s.a; path = "carrt measure/Libraries/lib/libflann_cpp_s.a"; sourceTree = "<group>"; };
+		AC32581126A3363700C169A2 /* libopencv_photo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_photo.a; path = "carrt measure/Libraries/lib/libopencv_photo.a"; sourceTree = "<group>"; };
+		AC32581226A3363700C169A2 /* libpcl_kdtree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_kdtree.a; path = "carrt measure/Libraries/lib/libpcl_kdtree.a"; sourceTree = "<group>"; };
+		AC32581326A3363700C169A2 /* libopencv_features2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_features2d.a; path = "carrt measure/Libraries/lib/libopencv_features2d.a"; sourceTree = "<group>"; };
+		AC32581426A3363700C169A2 /* libg2o_solver_pcg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_pcg.a; path = "carrt measure/Libraries/lib/libg2o_solver_pcg.a"; sourceTree = "<group>"; };
+		AC32581526A3363700C169A2 /* libopencv_highgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_highgui.a; path = "carrt measure/Libraries/lib/libopencv_highgui.a"; sourceTree = "<group>"; };
+		AC32581626A3363700C169A2 /* libpcl_keypoints.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_keypoints.a; path = "carrt measure/Libraries/lib/libpcl_keypoints.a"; sourceTree = "<group>"; };
+		AC32581726A3363700C169A2 /* libg2o_types_slam3d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_slam3d.a; path = "carrt measure/Libraries/lib/libg2o_types_slam3d.a"; sourceTree = "<group>"; };
+		AC32581826A3363700C169A2 /* libopencv_saliency.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_saliency.a; path = "carrt measure/Libraries/lib/libopencv_saliency.a"; sourceTree = "<group>"; };
+		AC32581926A3363700C169A2 /* libopencv_videoio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_videoio.a; path = "carrt measure/Libraries/lib/libopencv_videoio.a"; sourceTree = "<group>"; };
+		AC32581A26A3363700C169A2 /* libopencv_video.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_video.a; path = "carrt measure/Libraries/lib/libopencv_video.a"; sourceTree = "<group>"; };
+		AC32581B26A3363700C169A2 /* libpcl_search.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_search.a; path = "carrt measure/Libraries/lib/libpcl_search.a"; sourceTree = "<group>"; };
+		AC32581C26A3363700C169A2 /* libgtsam_unstable.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtsam_unstable.a; path = "carrt measure/Libraries/lib/libgtsam_unstable.a"; sourceTree = "<group>"; };
+		AC32581D26A3363700C169A2 /* libopencv_ml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_ml.a; path = "carrt measure/Libraries/lib/libopencv_ml.a"; sourceTree = "<group>"; };
+		AC32581E26A3363700C169A2 /* libopencv_shape.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_shape.a; path = "carrt measure/Libraries/lib/libopencv_shape.a"; sourceTree = "<group>"; };
+		AC32581F26A3363700C169A2 /* libg2o_types_slam3d_addons.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_types_slam3d_addons.a; path = "carrt measure/Libraries/lib/libg2o_types_slam3d_addons.a"; sourceTree = "<group>"; };
+		AC32582026A3363700C169A2 /* libopencv_tracking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_tracking.a; path = "carrt measure/Libraries/lib/libopencv_tracking.a"; sourceTree = "<group>"; };
+		AC32582126A3363700C169A2 /* libpcl_io_ply.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io_ply.a; path = "carrt measure/Libraries/lib/libpcl_io_ply.a"; sourceTree = "<group>"; };
+		AC32582226A3363700C169A2 /* libg2o_solver_slam2d_linear.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_slam2d_linear.a; path = "carrt measure/Libraries/lib/libg2o_solver_slam2d_linear.a"; sourceTree = "<group>"; };
+		AC32582326A3363700C169A2 /* libqhullstatic_r.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic_r.a; path = "carrt measure/Libraries/lib/libqhullstatic_r.a"; sourceTree = "<group>"; };
+		AC32582426A3363800C169A2 /* libopencv_bgsegm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_bgsegm.a; path = "carrt measure/Libraries/lib/libopencv_bgsegm.a"; sourceTree = "<group>"; };
+		AC32582526A3363800C169A2 /* libg2o_solver_structure_only.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg2o_solver_structure_only.a; path = "carrt measure/Libraries/lib/libg2o_solver_structure_only.a"; sourceTree = "<group>"; };
+		AC32582626A3363800C169A2 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = "carrt measure/Libraries/lib/libboost_thread.a"; sourceTree = "<group>"; };
+		AC32582726A3363800C169A2 /* libopencv_datasets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_datasets.a; path = "carrt measure/Libraries/lib/libopencv_datasets.a"; sourceTree = "<group>"; };
+		AC32588D26A3379C00C169A2 /* vtk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vtk.framework; path = "carrt measure/Libraries/lib/vtk.framework"; sourceTree = "<group>"; };
+		AC32589126A33A4200C169A2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		AC46DAEF2693B64B00D89070 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		AC46DAF12695002000D89070 /* LoginAndSignup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginAndSignup.storyboard; sourceTree = "<group>"; };
+		AC79FAA3269906A600680A07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC79FAA5269908BD00680A07 /* LoginAndSignup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndSignup.storyboard; sourceTree = "<group>"; };
+		AC79FAF9269915B900680A07 /* MathsHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathsHelpers.swift; sourceTree = "<group>"; };
+		AC79FAFA269915B900680A07 /* ARSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSettings.swift; sourceTree = "<group>"; };
+		AC79FAFB269915B900680A07 /* ARSCNView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extensions.swift"; sourceTree = "<group>"; };
+		AC79FAFC269915B900680A07 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		AC79FB02269915E100680A07 /* MeasuringLineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasuringLineNode.swift; sourceTree = "<group>"; };
+		AC79FB03269915E100680A07 /* MarkerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerNode.swift; sourceTree = "<group>"; };
+		AC79FB04269915E100680A07 /* TextNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
+		AC79FB6826A25C6000680A07 /* LidarScanModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LidarScanModuleViewController.swift; sourceTree = "<group>"; };
+		AC79FB6C26A25C6000680A07 /* DatabaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseView.swift; sourceTree = "<group>"; };
+		AC79FB6D26A25C6000680A07 /* LidarScanModule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LidarScanModule.storyboard; sourceTree = "<group>"; };
+		AC79FB6F26A25C6000680A07 /* RTABMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTABMap.swift; sourceTree = "<group>"; };
+		AC86609A26980087001628B9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		AC86609C269800F7001628B9 /* Carrt Measure-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carrt Measure-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC8660A8269800F7001628B9 /* VerticalScrollerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollerView.swift; sourceTree = "<group>"; };
+		ACF418A62689246900313292 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		ACF418AE268933B000313292 /* ImageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageView.storyboard; sourceTree = "<group>"; };
+		D1A7B9B1641333C52C5C93FD /* Pods_Carrt_Measure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carrt_Measure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC795FD6172C77E44A5C26E1 /* Pods-Carrt Measure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carrt Measure.release.xcconfig"; path = "Target Support Files/Pods-Carrt Measure/Pods-Carrt Measure.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4843E864245B5D0E0044669C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC32587F26A3363800C169A2 /* libopencv_video.a in Frameworks */,
+				AC062EC326A395CE007E0891 /* libopencv_imgcodecs.a in Frameworks */,
+				AC32585B26A3363800C169A2 /* libopencv_hfs.a in Frameworks */,
+				AC32582F26A3363800C169A2 /* libboost_date_time.a in Frameworks */,
+				AC32584A26A3363800C169A2 /* libboost_regex.a in Frameworks */,
+				AC32584426A3363800C169A2 /* libpcl_ml.a in Frameworks */,
+				AC32582826A3363800C169A2 /* libopencv_ccalib.a in Frameworks */,
+				AC32585326A3363800C169A2 /* libopencv_xphoto.a in Frameworks */,
+				AC32582A26A3363800C169A2 /* libopencv_objdetect.a in Frameworks */,
+				AC32586026A3363800C169A2 /* libqhullcpp.a in Frameworks */,
+				AC32585526A3363800C169A2 /* libqhullstatic.a in Frameworks */,
+				AC32585126A3363800C169A2 /* libpcl_octree.a in Frameworks */,
+				AC32587726A3363800C169A2 /* libpcl_kdtree.a in Frameworks */,
+				AC32584526A3363800C169A2 /* libopencv_imgproc.a in Frameworks */,
+				AC32584E26A3363800C169A2 /* libpcl_common.a in Frameworks */,
+				AC32583126A3363800C169A2 /* libopencv_plot.a in Frameworks */,
+				AC32588226A3363800C169A2 /* libopencv_ml.a in Frameworks */,
+				AC32587826A3363800C169A2 /* libopencv_features2d.a in Frameworks */,
+				AC32588426A3363800C169A2 /* libg2o_types_slam3d_addons.a in Frameworks */,
+				AC32588326A3363800C169A2 /* libopencv_shape.a in Frameworks */,
+				AC32585D26A3363800C169A2 /* libzlib.a in Frameworks */,
+				AC32584726A3363800C169A2 /* libboost_system.a in Frameworks */,
+				AC32586A26A3363800C169A2 /* libgtsam.a in Frameworks */,
+				AC32586326A3363800C169A2 /* libopencv_face.a in Frameworks */,
+				AC32582D26A3363800C169A2 /* libboost_filesystem.a in Frameworks */,
+				AC32585F26A3363800C169A2 /* libpcl_segmentation.a in Frameworks */,
+				AC32587926A3363800C169A2 /* libg2o_solver_pcg.a in Frameworks */,
+				AC32585C26A3363800C169A2 /* libopencv_dnn.a in Frameworks */,
+				AC32587C26A3363800C169A2 /* libg2o_types_slam3d.a in Frameworks */,
+				AC32588C26A3363800C169A2 /* libopencv_datasets.a in Frameworks */,
+				AC32588B26A3363800C169A2 /* libboost_thread.a in Frameworks */,
+				AC32586826A3363800C169A2 /* librtabmap_core.a in Frameworks */,
+				AC32583B26A3363800C169A2 /* libopencv_calib3d.a in Frameworks */,
+				AC32587526A3363800C169A2 /* libflann_cpp_s.a in Frameworks */,
+				AC09347326859E1B0032BB37 /* BoxSDK in Frameworks */,
+				AC32584126A3363800C169A2 /* libg2o_solver_csparse.a in Frameworks */,
+				AC32589226A33A4200C169A2 /* OpenGLES.framework in Frameworks */,
+				AC32583726A3363800C169A2 /* libopencv_stitching.a in Frameworks */,
+				AC32583F26A3363800C169A2 /* libpcl_tracking.a in Frameworks */,
+				ACF4189D2687C00000313292 /* BoxPreviewSDK in Frameworks */,
+				AC32586526A3363800C169A2 /* libpcl_recognition.a in Frameworks */,
+				AC32587A26A3363800C169A2 /* libopencv_highgui.a in Frameworks */,
+				AC32584926A3363800C169A2 /* libopencv_optflow.a in Frameworks */,
+				AC32586B26A3363800C169A2 /* libopencv_text.a in Frameworks */,
+				AC32584026A3363800C169A2 /* libopencv_line_descriptor.a in Frameworks */,
+				AC32584626A3363800C169A2 /* libpcl_stereo.a in Frameworks */,
+				AC32582E26A3363800C169A2 /* libg2o_types_data.a in Frameworks */,
+				AC32585826A3363800C169A2 /* libopencv_bioinspired.a in Frameworks */,
+				AC32584826A3363800C169A2 /* libpcl_sample_consensus.a in Frameworks */,
+				AC32582B26A3363800C169A2 /* libg2o_csparse_extension.a in Frameworks */,
+				AC32585E26A3363800C169A2 /* libopencv_structured_light.a in Frameworks */,
+				AC32587126A3363800C169A2 /* libopencv_phase_unwrapping.a in Frameworks */,
+				AC32587026A3363800C169A2 /* libpcl_filters.a in Frameworks */,
+				AC32585626A3363800C169A2 /* libg2o_solver_dense.a in Frameworks */,
+				AC32583326A3363800C169A2 /* libg2o_types_slam2d.a in Frameworks */,
+				AC32588026A3363800C169A2 /* libpcl_search.a in Frameworks */,
+				AC32585026A3363800C169A2 /* libopencv_reg.a in Frameworks */,
+				AC32585726A3363800C169A2 /* libpcl_registration.a in Frameworks */,
+				AC32586726A3363800C169A2 /* libopencv_aruco.a in Frameworks */,
+				AC32588826A3363800C169A2 /* libqhullstatic_r.a in Frameworks */,
+				AC32583D26A3363800C169A2 /* libopencv_dnn_objdetect.a in Frameworks */,
+				AC32586926A3363800C169A2 /* libopencv_img_hash.a in Frameworks */,
+				AC32588626A3363800C169A2 /* libpcl_io_ply.a in Frameworks */,
+				AC062ECB26A39F27007E0891 /* liblibprotobuf.a in Frameworks */,
+				AC32584C26A3363800C169A2 /* libopencv_dpm.a in Frameworks */,
+				AC32586E26A3363800C169A2 /* libg2o_types_sclam2d.a in Frameworks */,
+				AC32583226A3363800C169A2 /* libopencv_flann.a in Frameworks */,
+				AC32588126A3363800C169A2 /* libgtsam_unstable.a in Frameworks */,
+				AC32583A26A3363800C169A2 /* libboost_serialization.a in Frameworks */,
+				AC32583626A3363800C169A2 /* libg2o_core.a in Frameworks */,
+				AC32586226A3363800C169A2 /* libg2o_stuff.a in Frameworks */,
+				AC32588526A3363800C169A2 /* libopencv_tracking.a in Frameworks */,
+				AC32588A26A3363800C169A2 /* libg2o_solver_structure_only.a in Frameworks */,
+				AC32584326A3363800C169A2 /* libopencv_xfeatures2d.a in Frameworks */,
+				AC32583526A3363800C169A2 /* libboost_program_options.a in Frameworks */,
+				AC32584B26A3363800C169A2 /* libboost_timer.a in Frameworks */,
+				AC32587E26A3363800C169A2 /* libopencv_videoio.a in Frameworks */,
+				AC32587D26A3363800C169A2 /* libopencv_saliency.a in Frameworks */,
+				AC32585426A3363800C169A2 /* libboost_iostreams.a in Frameworks */,
+				AC32585226A3363800C169A2 /* libopencv_fuzzy.a in Frameworks */,
+				AC32587426A3363800C169A2 /* libpcl_surface.a in Frameworks */,
+				AC32583C26A3363800C169A2 /* libboost_chrono.a in Frameworks */,
+				AC32586626A3363800C169A2 /* libopencv_ximgproc.a in Frameworks */,
+				AC32583E26A3363800C169A2 /* libopencv_surface_matching.a in Frameworks */,
+				AC32583826A3363800C169A2 /* libopencv_videostab.a in Frameworks */,
+				AC32585926A3363800C169A2 /* libg2o_types_icp.a in Frameworks */,
+				AC32583426A3363800C169A2 /* librtabmap_utilite.a in Frameworks */,
+				AC32586C26A3363800C169A2 /* libg2o_types_sba.a in Frameworks */,
+				AC32584D26A3363800C169A2 /* libg2o_ext_csparse.a in Frameworks */,
+				AC32587226A3363800C169A2 /* libg2o_types_sim3.a in Frameworks */,
+				AC062ECC26A39F27007E0891 /* liblibjpeg-turbo.a in Frameworks */,
+				AC32582926A3363800C169A2 /* libboost_signals.a in Frameworks */,
+				AC8660B726980727001628B9 /* Zip in Frameworks */,
+				AC32586D26A3363800C169A2 /* libopencv_core.a in Frameworks */,
+				AC062ECD26A39F27007E0891 /* liblibwebp.a in Frameworks */,
+				AC32588926A3363800C169A2 /* libopencv_bgsegm.a in Frameworks */,
+				AC32584F26A3363800C169A2 /* libg2o_solver_eigen.a in Frameworks */,
+				AC32585A26A3363800C169A2 /* libmetis.a in Frameworks */,
+				AC32586426A3363800C169A2 /* libpcl_io.a in Frameworks */,
+				AC32583026A3363800C169A2 /* libg2o_types_slam2d_addons.a in Frameworks */,
+				AC32587626A3363800C169A2 /* libopencv_photo.a in Frameworks */,
+				AC32587B26A3363800C169A2 /* libpcl_keypoints.a in Frameworks */,
+				AC32582C26A3363800C169A2 /* libpcl_features.a in Frameworks */,
+				AC32588726A3363800C169A2 /* libg2o_solver_slam2d_linear.a in Frameworks */,
+				B66AA2F92250798A521EAB5A /* Pods_Carrt_Measure.framework in Frameworks */,
+				AC32588E26A3379C00C169A2 /* vtk.framework in Frameworks */,
+				AC32587326A3363800C169A2 /* libopencv_rgbd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4843E85E245B5D0D0044669C = {
+			isa = PBXGroup;
+			children = (
+				AC86609A26980087001628B9 /* Settings.bundle */,
+				8063266B262D112400767F50 /* EmployeeViewController.swift */,
+				8063266C262D112400767F50 /* EmployeeViewController.xib */,
+				4843E869245B5D0E0044669C /* carrt measure */,
+				4843E868245B5D0E0044669C /* Products */,
+				EAD7A1C43DE7B15910FFED7B /* Pods */,
+				E55B31FED9E4413F43BE899F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4843E868245B5D0E0044669C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4843E867245B5D0E0044669C /* Carrt Measure.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4843E869245B5D0E0044669C /* carrt measure */ = {
+			isa = PBXGroup;
+			children = (
+				AC062E7226A38FF1007E0891 /* tango-gl */,
+				AC062DB626A37F12007E0891 /* NativeWrapper */,
+				AC79FB6826A25C6000680A07 /* LidarScanModuleViewController.swift */,
+				AC79FB6C26A25C6000680A07 /* DatabaseView.swift */,
+				AC79FB6F26A25C6000680A07 /* RTABMap.swift */,
+				AC79FB6D26A25C6000680A07 /* LidarScanModule.storyboard */,
+				AC79FB01269915E100680A07 /* SCNNodes */,
+				AC79FAF8269915B900680A07 /* Extensions */,
+				AC8660A8269800F7001628B9 /* VerticalScrollerView.swift */,
+				AC46DAF12695002000D89070 /* LoginAndSignup.storyboard */,
+				AC0934BE268696910032BB37 /* BoxSync.storyboard */,
+				809A829E264607E9005013A3 /* Main.storyboard */,
+				480BEB6D24648D72008819D9 /* Models.swift */,
+				4811570324606894004D0683 /* ProjectsViewController.swift */,
+				48C20EF324D3478F00318C2D /* ManageTeamViewController.swift */,
+				80632675262FA96100767F50 /* LaunchScreen.storyboard */,
+				4843E86A245B5D0E0044669C /* AppDelegate.swift */,
+				4843E86C245B5D0E0044669C /* SceneDelegate.swift */,
+				4843E873245B5D0F0044669C /* Assets.xcassets */,
+				48596AD0245C71C9005A6E3B /* WelcomeViewController.swift */,
+				4843E878245B5D0F0044669C /* Info.plist */,
+				806FCCA42606D74B00B420AB /* AddCustomerFormController.swift */,
+				80DFF60126193E150018E463 /* DisplayCustInfoViewController.swift */,
+				80DFF60226193E170018E463 /* DisplayCustInfoViewController.xib */,
+				806325E426266E9800767F50 /* RoomViewController.swift */,
+				806325E526266E9800767F50 /* RoomViewController.xib */,
+				806325F32629497100767F50 /* ImagePickViewController.swift */,
+				806325F42629497200767F50 /* ImagePickViewController.xib */,
+				8063E8EF262FEF66002933AC /* ARViewController.swift */,
+				AC09346D26840BC50032BB37 /* commonData.swift */,
+				AC0934B6268668160032BB37 /* BoxSyncViewController.swift */,
+				AC0934B8268668F60032BB37 /* BoxBasicErrorView.swift */,
+				AC0934BA268669EB0032BB37 /* Constants.swift */,
+				ACF418A62689246900313292 /* ImageViewController.swift */,
+				ACF418AE268933B000313292 /* ImageView.storyboard */,
+				AC46DAEF2693B64B00D89070 /* DesignableView.swift */,
+				AC86609C269800F7001628B9 /* Carrt Measure-Bridging-Header.h */,
+				AC79FAA3269906A600680A07 /* LoginViewController.swift */,
+				AC79FAA5269908BD00680A07 /* LoginAndSignup.storyboard */,
+			);
+			path = "carrt measure";
+			sourceTree = "<group>";
+		};
+		AC062DB626A37F12007E0891 /* NativeWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				AC062DB726A37F12007E0891 /* bounding_box_drawable.h */,
+				AC062DB826A37F12007E0891 /* RTABMapApp.cpp */,
+				AC062DB926A37F12007E0891 /* point_cloud_drawable.cpp */,
+				AC062DBA26A37F12007E0891 /* scene.cpp */,
+				AC062DBB26A37F12007E0891 /* graph_drawable.cpp */,
+				AC062DBC26A37F12007E0891 /* graph_drawable.h */,
+				AC062DBD26A37F12007E0891 /* NativeWrapper.cpp */,
+				AC062DBE26A37F12007E0891 /* point_cloud_drawable.h */,
+				AC062DBF26A37F12007E0891 /* NativeWrapper.hpp */,
+				AC062DC026A37F12007E0891 /* CameraMobile.h */,
+				AC062DC126A37F12007E0891 /* background_renderer.h */,
+				AC062DC226A37F12007E0891 /* util.h */,
+				AC062DC326A37F12007E0891 /* ProgressionStatus.h */,
+				AC062DC426A37F12007E0891 /* background_renderer.cc */,
+				AC062DC526A37F12007E0891 /* RTABMapApp.h */,
+				AC062DC626A37F12007E0891 /* CameraMobile.cpp */,
+				AC062DC726A37F12007E0891 /* scene.h */,
+			);
+			path = NativeWrapper;
+			sourceTree = "<group>";
+		};
+		AC062E7226A38FF1007E0891 /* tango-gl */ = {
+			isa = PBXGroup;
+			children = (
+				AC062E7326A38FF1007E0891 /* line.cpp */,
+				AC062E7426A38FF1007E0891 /* util.cpp */,
+				AC062E7526A38FF1007E0891 /* obj_loader.cpp */,
+				AC062E7626A38FF1007E0891 /* bounding_box.cpp */,
+				AC062E7726A38FF1007E0891 /* mesh.cpp */,
+				AC062E7826A38FF1007E0891 /* axis.cpp */,
+				AC062E7926A38FF1007E0891 /* segment_drawable.cpp */,
+				AC062E7A26A38FF1007E0891 /* conversions.cpp */,
+				AC062E7B26A38FF1007E0891 /* camera.cpp */,
+				AC062E7C26A38FF1007E0891 /* include */,
+				AC062E9826A38FF2007E0891 /* gesture_camera.cpp */,
+				AC062E9926A38FF2007E0891 /* trace.cpp */,
+				AC062E9A26A38FF2007E0891 /* texture.cpp */,
+				AC062E9B26A38FF2007E0891 /* quad.cpp */,
+				AC062E9C26A38FF2007E0891 /* drawable_object.cpp */,
+				AC062E9D26A38FF2007E0891 /* frustum.cpp */,
+				AC062E9E26A38FF2007E0891 /* shaders.cpp */,
+				AC062E9F26A38FF2007E0891 /* transform.cpp */,
+				AC062EA126A38FF2007E0891 /* grid.cpp */,
+				AC062EA226A38FF2007E0891 /* triangle.cpp */,
+				AC062EA326A38FF2007E0891 /* circle.cpp */,
+				AC062EA426A38FF2007E0891 /* cube.cpp */,
+				AC062EA526A38FF2007E0891 /* goal_marker.cpp */,
+				AC062EA626A38FF2007E0891 /* band.cpp */,
+			);
+			path = "tango-gl";
+			sourceTree = "<group>";
+		};
+		AC062E7C26A38FF1007E0891 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				AC062E7D26A38FF1007E0891 /* tango-gl */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		AC062E7D26A38FF1007E0891 /* tango-gl */ = {
+			isa = PBXGroup;
+			children = (
+				AC062E7E26A38FF1007E0891 /* axis.h */,
+				AC062E7F26A38FF1007E0891 /* band.h */,
+				AC062E8026A38FF1007E0891 /* conversions.h */,
+				AC062E8126A38FF1007E0891 /* segment.h */,
+				AC062E8226A38FF1007E0891 /* circle.h */,
+				AC062E8326A38FF1007E0891 /* gesture_camera.h */,
+				AC062E8426A38FF1007E0891 /* quad.h */,
+				AC062E8526A38FF1007E0891 /* camera.h */,
+				AC062E8626A38FF1007E0891 /* frustum.h */,
+				AC062E8726A38FF1007E0891 /* color.h */,
+				AC062E8826A38FF1007E0891 /* shaders.h */,
+				AC062E8926A38FF1007E0891 /* mesh.h */,
+				AC062E8A26A38FF1007E0891 /* grid.h */,
+				AC062E8B26A38FF1007E0891 /* cube.h */,
+				AC062E8C26A38FF2007E0891 /* trace.h */,
+				AC062E8D26A38FF2007E0891 /* transform.h */,
+				AC062E8E26A38FF2007E0891 /* goal_marker.h */,
+				AC062E8F26A38FF2007E0891 /* segment_drawable.h */,
+				AC062E9026A38FF2007E0891 /* util.h */,
+				AC062E9126A38FF2007E0891 /* triangle.h */,
+				AC062E9226A38FF2007E0891 /* line.h */,
+				AC062E9326A38FF2007E0891 /* video_overlay.h */,
+				AC062E9426A38FF2007E0891 /* texture.h */,
+				AC062E9526A38FF2007E0891 /* obj_loader.h */,
+				AC062E9626A38FF2007E0891 /* drawable_object.h */,
+				AC062E9726A38FF2007E0891 /* bounding_box.h */,
+			);
+			path = "tango-gl";
+			sourceTree = "<group>";
+		};
+		AC79FAF8269915B900680A07 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC79FAF9269915B900680A07 /* MathsHelpers.swift */,
+				AC79FAFA269915B900680A07 /* ARSettings.swift */,
+				AC79FAFB269915B900680A07 /* ARSCNView+Extensions.swift */,
+				AC79FAFC269915B900680A07 /* RoundButton.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC79FB01269915E100680A07 /* SCNNodes */ = {
+			isa = PBXGroup;
+			children = (
+				AC79FB02269915E100680A07 /* MeasuringLineNode.swift */,
+				AC79FB03269915E100680A07 /* MarkerNode.swift */,
+				AC79FB04269915E100680A07 /* TextNode.swift */,
+			);
+			path = SCNNodes;
+			sourceTree = "<group>";
+		};
+		E55B31FED9E4413F43BE899F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC062EC826A39F27007E0891 /* liblibjpeg-turbo.a */,
+				AC062EC726A39F27007E0891 /* liblibprotobuf.a */,
+				AC062EC926A39F27007E0891 /* liblibwebp.a */,
+				AC062EC126A395CE007E0891 /* libopencv_imgcodecs.a */,
+				AC062EBF26A393D2007E0891 /* libopencv_contrib.a */,
+				AC32589126A33A4200C169A2 /* OpenGLES.framework */,
+				AC32588D26A3379C00C169A2 /* vtk.framework */,
+				AC3257D726A3363600C169A2 /* libboost_chrono.a */,
+				AC3257CA26A3363600C169A2 /* libboost_date_time.a */,
+				AC3257C826A3363600C169A2 /* libboost_filesystem.a */,
+				AC3257EF26A3363600C169A2 /* libboost_iostreams.a */,
+				AC3257D026A3363600C169A2 /* libboost_program_options.a */,
+				AC3257E526A3363600C169A2 /* libboost_regex.a */,
+				AC3257D526A3363600C169A2 /* libboost_serialization.a */,
+				AC3257C426A3363600C169A2 /* libboost_signals.a */,
+				AC3257E226A3363600C169A2 /* libboost_system.a */,
+				AC32582626A3363800C169A2 /* libboost_thread.a */,
+				AC3257E626A3363600C169A2 /* libboost_timer.a */,
+				AC32581026A3363700C169A2 /* libflann_cpp_s.a */,
+				AC3257D126A3363600C169A2 /* libg2o_core.a */,
+				AC3257C626A3363600C169A2 /* libg2o_csparse_extension.a */,
+				AC3257E826A3363600C169A2 /* libg2o_ext_csparse.a */,
+				AC3257DC26A3363600C169A2 /* libg2o_solver_csparse.a */,
+				AC3257F126A3363600C169A2 /* libg2o_solver_dense.a */,
+				AC3257EA26A3363600C169A2 /* libg2o_solver_eigen.a */,
+				AC32581426A3363700C169A2 /* libg2o_solver_pcg.a */,
+				AC32582226A3363700C169A2 /* libg2o_solver_slam2d_linear.a */,
+				AC32582526A3363800C169A2 /* libg2o_solver_structure_only.a */,
+				AC3257FD26A3363600C169A2 /* libg2o_stuff.a */,
+				AC3257C926A3363600C169A2 /* libg2o_types_data.a */,
+				AC3257F426A3363600C169A2 /* libg2o_types_icp.a */,
+				AC32580726A3363700C169A2 /* libg2o_types_sba.a */,
+				AC32580926A3363700C169A2 /* libg2o_types_sclam2d.a */,
+				AC32580D26A3363700C169A2 /* libg2o_types_sim3.a */,
+				AC3257CB26A3363600C169A2 /* libg2o_types_slam2d_addons.a */,
+				AC3257CE26A3363600C169A2 /* libg2o_types_slam2d.a */,
+				AC32581F26A3363700C169A2 /* libg2o_types_slam3d_addons.a */,
+				AC32581726A3363700C169A2 /* libg2o_types_slam3d.a */,
+				AC32581C26A3363700C169A2 /* libgtsam_unstable.a */,
+				AC32580526A3363700C169A2 /* libgtsam.a */,
+				AC3257F526A3363600C169A2 /* libmetis.a */,
+				AC32580226A3363700C169A2 /* libopencv_aruco.a */,
+				AC32582426A3363800C169A2 /* libopencv_bgsegm.a */,
+				AC3257F326A3363600C169A2 /* libopencv_bioinspired.a */,
+				AC3257D626A3363600C169A2 /* libopencv_calib3d.a */,
+				AC3257C326A3363600C169A2 /* libopencv_ccalib.a */,
+				AC32580826A3363700C169A2 /* libopencv_core.a */,
+				AC32582726A3363800C169A2 /* libopencv_datasets.a */,
+				AC3257D826A3363600C169A2 /* libopencv_dnn_objdetect.a */,
+				AC3257F726A3363600C169A2 /* libopencv_dnn.a */,
+				AC3257E726A3363600C169A2 /* libopencv_dpm.a */,
+				AC3257FE26A3363700C169A2 /* libopencv_face.a */,
+				AC32581326A3363700C169A2 /* libopencv_features2d.a */,
+				AC3257CD26A3363600C169A2 /* libopencv_flann.a */,
+				AC3257ED26A3363600C169A2 /* libopencv_fuzzy.a */,
+				AC3257F626A3363600C169A2 /* libopencv_hfs.a */,
+				AC32581526A3363700C169A2 /* libopencv_highgui.a */,
+				AC32580426A3363700C169A2 /* libopencv_img_hash.a */,
+				AC3257E026A3363600C169A2 /* libopencv_imgproc.a */,
+				AC3257DB26A3363600C169A2 /* libopencv_line_descriptor.a */,
+				AC32581D26A3363700C169A2 /* libopencv_ml.a */,
+				AC3257C526A3363600C169A2 /* libopencv_objdetect.a */,
+				AC3257E426A3363600C169A2 /* libopencv_optflow.a */,
+				AC32580C26A3363700C169A2 /* libopencv_phase_unwrapping.a */,
+				AC32581126A3363700C169A2 /* libopencv_photo.a */,
+				AC3257CC26A3363600C169A2 /* libopencv_plot.a */,
+				AC3257EB26A3363600C169A2 /* libopencv_reg.a */,
+				AC32580E26A3363700C169A2 /* libopencv_rgbd.a */,
+				AC32581826A3363700C169A2 /* libopencv_saliency.a */,
+				AC32581E26A3363700C169A2 /* libopencv_shape.a */,
+				AC3257D226A3363600C169A2 /* libopencv_stitching.a */,
+				AC3257F926A3363600C169A2 /* libopencv_structured_light.a */,
+				AC3257D926A3363600C169A2 /* libopencv_surface_matching.a */,
+				AC32580626A3363700C169A2 /* libopencv_text.a */,
+				AC32582026A3363700C169A2 /* libopencv_tracking.a */,
+				AC32581A26A3363700C169A2 /* libopencv_video.a */,
+				AC32581926A3363700C169A2 /* libopencv_videoio.a */,
+				AC3257D326A3363600C169A2 /* libopencv_videostab.a */,
+				AC3257DE26A3363600C169A2 /* libopencv_xfeatures2d.a */,
+				AC32580126A3363700C169A2 /* libopencv_ximgproc.a */,
+				AC3257EE26A3363600C169A2 /* libopencv_xphoto.a */,
+				AC3257E926A3363600C169A2 /* libpcl_common.a */,
+				AC3257C726A3363600C169A2 /* libpcl_features.a */,
+				AC32580B26A3363700C169A2 /* libpcl_filters.a */,
+				AC32582126A3363700C169A2 /* libpcl_io_ply.a */,
+				AC3257FF26A3363700C169A2 /* libpcl_io.a */,
+				AC32581226A3363700C169A2 /* libpcl_kdtree.a */,
+				AC32581626A3363700C169A2 /* libpcl_keypoints.a */,
+				AC3257DF26A3363600C169A2 /* libpcl_ml.a */,
+				AC3257EC26A3363600C169A2 /* libpcl_octree.a */,
+				AC32580026A3363700C169A2 /* libpcl_recognition.a */,
+				AC3257F226A3363600C169A2 /* libpcl_registration.a */,
+				AC3257E326A3363600C169A2 /* libpcl_sample_consensus.a */,
+				AC32581B26A3363700C169A2 /* libpcl_search.a */,
+				AC3257FA26A3363600C169A2 /* libpcl_segmentation.a */,
+				AC3257E126A3363600C169A2 /* libpcl_stereo.a */,
+				AC32580F26A3363700C169A2 /* libpcl_surface.a */,
+				AC3257DA26A3363600C169A2 /* libpcl_tracking.a */,
+				AC3257FB26A3363600C169A2 /* libqhullcpp.a */,
+				AC32582326A3363700C169A2 /* libqhullstatic_r.a */,
+				AC3257F026A3363600C169A2 /* libqhullstatic.a */,
+				AC32580326A3363700C169A2 /* librtabmap_core.a */,
+				AC3257CF26A3363600C169A2 /* librtabmap_utilite.a */,
+				AC3257F826A3363600C169A2 /* libzlib.a */,
+				D1A7B9B1641333C52C5C93FD /* Pods_Carrt_Measure.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAD7A1C43DE7B15910FFED7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7185ED498A18BC4AAD887B92 /* Pods-Carrt Measure.debug.xcconfig */,
+				DC795FD6172C77E44A5C26E1 /* Pods-Carrt Measure.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4843E866245B5D0E0044669C /* Carrt Measure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4843E87B245B5D0F0044669C /* Build configuration list for PBXNativeTarget "Carrt Measure" */;
+			buildPhases = (
+				DBB3517A5F968D0D55282759 /* [CP] Check Pods Manifest.lock */,
+				4843E863245B5D0E0044669C /* Sources */,
+				4843E864245B5D0E0044669C /* Frameworks */,
+				4843E865245B5D0E0044669C /* Resources */,
+				01FE75E9F7D454639DCA6B39 /* [CP] Embed Pods Frameworks */,
+				AC8663632698247D001628B9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Carrt Measure";
+			packageProductDependencies = (
+				AC09347226859E1B0032BB37 /* BoxSDK */,
+				ACF4189C2687C00000313292 /* BoxPreviewSDK */,
+				AC8660B626980727001628B9 /* Zip */,
+			);
+			productName = "Task Tracker";
+			productReference = 4843E867245B5D0E0044669C /* Carrt Measure.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4843E85F245B5D0D0044669C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = "carrt usf";
+				TargetAttributes = {
+					4843E866245B5D0E0044669C = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1250;
+					};
+				};
+			};
+			buildConfigurationList = 4843E862245B5D0D0044669C /* Build configuration list for PBXProject "carrt-measure" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4843E85E245B5D0D0044669C;
+			packageReferences = (
+				AC09347126859E1B0032BB37 /* XCRemoteSwiftPackageReference "box-ios-sdk" */,
+				ACF4189B2687C00000313292 /* XCRemoteSwiftPackageReference "box-ios-preview-sdk" */,
+				AC8660B526980727001628B9 /* XCRemoteSwiftPackageReference "Zip" */,
+			);
+			productRefGroup = 4843E868245B5D0E0044669C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4843E866245B5D0E0044669C /* Carrt Measure */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4843E865245B5D0E0044669C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACF418AF268933B000313292 /* ImageView.storyboard in Resources */,
+				80DFF60426193E1C0018E463 /* DisplayCustInfoViewController.xib in Resources */,
+				806325F62629497300767F50 /* ImagePickViewController.xib in Resources */,
+				AC79FB7526A25C6000680A07 /* LidarScanModule.storyboard in Resources */,
+				8063266E262D112600767F50 /* EmployeeViewController.xib in Resources */,
+				AC46DAF22695002000D89070 /* LoginAndSignup.storyboard in Resources */,
+				809A829F264607E9005013A3 /* Main.storyboard in Resources */,
+				806325E726266E9800767F50 /* RoomViewController.xib in Resources */,
+				809A829C263C839D005013A3 /* LaunchScreen.storyboard in Resources */,
+				4843E874245B5D0F0044669C /* Assets.xcassets in Resources */,
+				AC86609B26980087001628B9 /* Settings.bundle in Resources */,
+				AC0934BF268696910032BB37 /* BoxSync.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01FE75E9F7D454639DCA6B39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carrt Measure/Pods-Carrt Measure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carrt Measure/Pods-Carrt Measure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Carrt Measure/Pods-Carrt Measure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC8663632698247D001628B9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nversion=\"$MARKETING_VERSION\"\n/usr/libexec/PlistBuddy -c \"Set PreferenceSpecifiers:22:DefaultValue $version\" \"${SRCROOT}/Settings.bundle/Root.plist\"\n";
+		};
+		DBB3517A5F968D0D55282759 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carrt Measure-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4843E863245B5D0E0044669C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4811570424606894004D0683 /* ProjectsViewController.swift in Sources */,
+				48596AD1245C71C9005A6E3B /* WelcomeViewController.swift in Sources */,
+				80DFF60326193E1C0018E463 /* DisplayCustInfoViewController.swift in Sources */,
+				AC79FB7026A25C6000680A07 /* LidarScanModuleViewController.swift in Sources */,
+				AC79FB7426A25C6000680A07 /* DatabaseView.swift in Sources */,
+				AC79FAFD269915B900680A07 /* MathsHelpers.swift in Sources */,
+				AC062DCB26A37F12007E0891 /* graph_drawable.cpp in Sources */,
+				806325E626266E9800767F50 /* RoomViewController.swift in Sources */,
+				AC062EBC26A38FF2007E0891 /* cube.cpp in Sources */,
+				AC062EB426A38FF2007E0891 /* drawable_object.cpp in Sources */,
+				AC062EA726A38FF2007E0891 /* line.cpp in Sources */,
+				AC79FB07269915E100680A07 /* TextNode.swift in Sources */,
+				AC062EB026A38FF2007E0891 /* gesture_camera.cpp in Sources */,
+				AC062EB526A38FF2007E0891 /* frustum.cpp in Sources */,
+				AC79FAFE269915B900680A07 /* ARSettings.swift in Sources */,
+				AC062DC926A37F12007E0891 /* point_cloud_drawable.cpp in Sources */,
+				AC79FB00269915B900680A07 /* RoundButton.swift in Sources */,
+				AC09346E26840BC50032BB37 /* commonData.swift in Sources */,
+				AC062EBB26A38FF2007E0891 /* circle.cpp in Sources */,
+				AC79FB7626A25C6000680A07 /* RTABMap.swift in Sources */,
+				AC062EB626A38FF2007E0891 /* shaders.cpp in Sources */,
+				AC062EAB26A38FF2007E0891 /* mesh.cpp in Sources */,
+				AC46DAF02693B64B00D89070 /* DesignableView.swift in Sources */,
+				AC79FAFF269915B900680A07 /* ARSCNView+Extensions.swift in Sources */,
+				AC0934BB268669EB0032BB37 /* Constants.swift in Sources */,
+				AC8660B3269800F7001628B9 /* VerticalScrollerView.swift in Sources */,
+				AC062EA926A38FF2007E0891 /* obj_loader.cpp in Sources */,
+				AC062EAC26A38FF2007E0891 /* axis.cpp in Sources */,
+				AC79FB06269915E100680A07 /* MarkerNode.swift in Sources */,
+				4843E86B245B5D0E0044669C /* AppDelegate.swift in Sources */,
+				AC062EAE26A38FF2007E0891 /* conversions.cpp in Sources */,
+				48C20EF424D3478F00318C2D /* ManageTeamViewController.swift in Sources */,
+				AC062EB926A38FF2007E0891 /* grid.cpp in Sources */,
+				AC062EA826A38FF2007E0891 /* util.cpp in Sources */,
+				AC062EB226A38FF2007E0891 /* texture.cpp in Sources */,
+				AC062EB126A38FF2007E0891 /* trace.cpp in Sources */,
+				480BEB6E24648D72008819D9 /* Models.swift in Sources */,
+				AC062EBA26A38FF2007E0891 /* triangle.cpp in Sources */,
+				806325F52629497300767F50 /* ImagePickViewController.swift in Sources */,
+				AC062EBD26A38FF2007E0891 /* goal_marker.cpp in Sources */,
+				AC062EBE26A38FF2007E0891 /* band.cpp in Sources */,
+				806FCCA52606D74B00B420AB /* AddCustomerFormController.swift in Sources */,
+				ACF418A72689246900313292 /* ImageViewController.swift in Sources */,
+				AC062EB326A38FF2007E0891 /* quad.cpp in Sources */,
+				AC79FB05269915E100680A07 /* MeasuringLineNode.swift in Sources */,
+				8063266D262D112600767F50 /* EmployeeViewController.swift in Sources */,
+				AC062EAD26A38FF2007E0891 /* segment_drawable.cpp in Sources */,
+				AC79FAA4269906A600680A07 /* LoginViewController.swift in Sources */,
+				AC062DCD26A37F12007E0891 /* background_renderer.cc in Sources */,
+				AC062DCA26A37F12007E0891 /* scene.cpp in Sources */,
+				AC062DC826A37F12007E0891 /* RTABMapApp.cpp in Sources */,
+				AC0934B7268668160032BB37 /* BoxSyncViewController.swift in Sources */,
+				AC062DCE26A37F12007E0891 /* CameraMobile.cpp in Sources */,
+				AC062DCC26A37F12007E0891 /* NativeWrapper.cpp in Sources */,
+				AC0934B9268668F60032BB37 /* BoxBasicErrorView.swift in Sources */,
+				4843E86D245B5D0E0044669C /* SceneDelegate.swift in Sources */,
+				8063E8F0262FEF66002933AC /* ARViewController.swift in Sources */,
+				AC062EB726A38FF2007E0891 /* transform.cpp in Sources */,
+				AC062EAF26A38FF2007E0891 /* camera.cpp in Sources */,
+				AC062EAA26A38FF2007E0891 /* bounding_box.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4843E879245B5D0F0044669C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4843E87A245B5D0F0044669C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4843E87C245B5D0F0044669C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7185ED498A18BC4AAD887B92 /* Pods-Carrt Measure.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = N2LS9DQ957;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/carrt measure/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mongodb.CARRTMeasure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "carrt measure/Carrt Measure-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/carrt measure/Libraries/include\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/eigen3\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/pcl-1.11\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/lib/vtk.framework/Headers\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/rtabmap-0.20\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/tango-gl/include\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/third-party/include\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4843E87D245B5D0F0044669C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC795FD6172C77E44A5C26E1 /* Pods-Carrt Measure.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = N2LS9DQ957;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/carrt measure/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+					"$(PROJECT_DIR)/carrt\\ measure/Libraries/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mongodb.CARRTMeasure;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "carrt measure/Carrt Measure-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/carrt measure/Libraries/include\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/eigen3\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/pcl-1.11\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/lib/vtk.framework/Headers\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/include/rtabmap-0.20\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/tango-gl/include\"",
+					"\"$(SRCROOT)/carrt measure/Libraries/third-party/include\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4843E862245B5D0D0044669C /* Build configuration list for PBXProject "carrt-measure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4843E879245B5D0F0044669C /* Debug */,
+				4843E87A245B5D0F0044669C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4843E87B245B5D0F0044669C /* Build configuration list for PBXNativeTarget "Carrt Measure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4843E87C245B5D0F0044669C /* Debug */,
+				4843E87D245B5D0F0044669C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC09347126859E1B0032BB37 /* XCRemoteSwiftPackageReference "box-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/box/box-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.0;
+			};
+		};
+		AC8660B526980727001628B9 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+		ACF4189B2687C00000313292 /* XCRemoteSwiftPackageReference "box-ios-preview-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/box/box-ios-preview-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC09347226859E1B0032BB37 /* BoxSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC09347126859E1B0032BB37 /* XCRemoteSwiftPackageReference "box-ios-sdk" */;
+			productName = BoxSDK;
+		};
+		AC8660B626980727001628B9 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC8660B526980727001628B9 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		ACF4189C2687C00000313292 /* BoxPreviewSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACF4189B2687C00000313292 /* XCRemoteSwiftPackageReference "box-ios-preview-sdk" */;
+			productName = BoxPreviewSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4843E85F245B5D0D0044669C /* Project object */;
+}
