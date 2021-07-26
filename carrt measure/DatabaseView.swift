@@ -31,7 +31,7 @@
 
 import UIKit
 
-protocol DatabaseViewDelegate: class {
+protocol DatabaseViewDelegate: AnyObject {
     func databaseShared(databaseURL: URL)
     func databaseRenamed(databaseURL: URL)
     func databaseDeleted(databaseURL: URL)

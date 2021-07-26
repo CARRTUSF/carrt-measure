@@ -22,7 +22,7 @@ class TextNode: SCNNode{
     ///   - font: UIFont
     ///   - textSize: Optional CGFloat (Defaults To 3)
     ///   - colour: UIColor
-    init(text: String, depth: CGFloat = 1, font: String = "Helvatica", textSize: CGFloat = 0.1, colour: UIColor) {
+    init(text: String, depth: CGFloat = 1, font: String = "Helvetica", textSize: CGFloat = 100, colour: UIColor) {
         
         super.init()
         
@@ -44,13 +44,13 @@ class TextNode: SCNNode{
         textGeometry.flatness = 0
         
         //6. Set The Alignment Mode Of The Text
-		textGeometry.alignmentMode = CATextLayerAlignmentMode.center.rawValue
+        textGeometry.alignmentMode = CATextLayerAlignmentMode.center.rawValue
         
         //7. Set Our Text Colour & Apply The Font
         textGeometry.firstMaterial?.diffuse.contents = colour
         textGeometry.firstMaterial?.isDoubleSided = true
         textGeometry.font = UIFont(name: font, size: textSize)
-       
+        
         //8. Position & Scale Our Node
         max = textGeometry.boundingBox.max
         min = textGeometry.boundingBox.min

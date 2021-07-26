@@ -15,12 +15,24 @@ import BoxSDK
 import UIKit
 import Photos
 
-class ImageViewController: UITableViewController, ASWebAuthenticationPresentationContextProviding, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+
+class ImageViewController: UITableViewController, ASWebAuthenticationPresentationContextProviding, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+
+    
+    
     var model: dataPassage!
     private var sdk: BoxSDK!
     private var client: BoxClient!
     private var previewSDK: BoxPreviewSDK?
     private var folderItems: [FolderItem] = []
+    var filePath: String = ""
+    var fileName: String = ""
+    var passfilePath: URL!
+    private var openedDatabasePath: URL?
+    private var currentDatabaseIndex: Int = 0
+    private var databases = [URL]()
     private var folderItemsID: [String] = []
     private let initialPageSize: Int = 100
     private weak var imageView : UIImageView!
@@ -76,15 +88,81 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
 
        return alertController
      }
+    func getDocumentDirectory() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+    
+    func updateDatabases()
+    {
+        databases.removeAll()
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: getDocumentDirectory(), includingPropertiesForKeys: nil)
+            // if you want to filter the directory contents you can do like this:
+            
+            let data = fileURLs.map { url in
+                        (url, (try? url.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast)
+                    }
+                    .sorted(by: { $0.1 > $1.1 }) // sort descending modification dates
+                    .map { $0.0 } // extract file names
+            databases = data.filter{ $0.pathExtension == "zip" }
+            print("exiting updateDatabases")
+            
+        } catch {
+            print("Error while enumerating files : \(error.localizedDescription)")
+            return
+        }
+    }
     
     @objc func ScansButtonDidClick() {
         
-        let storyBoardController:UIStoryboard = UIStoryboard(name: "LidarScanModule", bundle: nil)
-        let viewController : LidarScanModuleViewController = storyBoardController.instantiateViewController(withIdentifier: "LidarScanModule") as! LidarScanModuleViewController
         
-        viewController.model = model
-         
+            updateDatabases();
+            print("entering alertController creation")
+            if databases.isEmpty {
+                return
+            }
+            
+            let alertController = UIAlertController(title: "Lidar Scans", message: nil, preferredStyle: .alert)
+            let customView = VerticalScrollerView()
+            customView.dataSource = self
+            customView.delegate = self
+            customView.reload()
+        print("Image View Controller line: 130")
+            alertController.view.addSubview(customView)
+            customView.translatesAutoresizingMaskIntoConstraints = false
+            customView.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 60).isActive = true
+            customView.rightAnchor.constraint(equalTo: alertController.view.rightAnchor, constant: -10).isActive = true
+            customView.leftAnchor.constraint(equalTo: alertController.view.leftAnchor, constant: 10).isActive = true
+            customView.bottomAnchor.constraint(equalTo: alertController.view.bottomAnchor, constant: -45).isActive = true
+            
+            alertController.view.translatesAutoresizingMaskIntoConstraints = false
+            alertController.view.heightAnchor.constraint(equalToConstant: 600).isActive = true
+            alertController.view.widthAnchor.constraint(equalToConstant: 400).isActive = true
+
+            customView.backgroundColor = .darkGray
+
+            let selectAction = UIAlertAction(title: "Select", style: .default) { (action) in
+                self.openObjViewer(fileUrl: self.databases[self.currentDatabaseIndex])
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(selectAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        print("Image View Controller line: 152")
+        
+    }
+    
+    
+    func openObjViewer(fileUrl: URL) {
+        let storyBoardController:UIStoryboard = UIStoryboard(name: "objView", bundle: nil)
+        let viewController : objPreviewViewController =  storyBoardController.instantiateViewController(withIdentifier: "objView") as! objPreviewViewController
+        
+        viewController.filePath = fileUrl
+        viewController.fileName = fileUrl.lastPathComponent
          self.navigationController!.pushViewController(viewController, animated: true)
+        
+        
         
     }
     
@@ -524,4 +602,180 @@ extension ImageViewController {
         return self.view.window ?? ASPresentationAnchor()
     }
 }
+extension ImageViewController: VerticalScrollerViewDelegate {
+    func verticalScrollerView(_ horizontalScrollerView: VerticalScrollerView, didSelectViewAt index: Int) {
+    //1
+    let previousDatabaseView = horizontalScrollerView.view(at: currentDatabaseIndex) as! objView
+    previousDatabaseView.highlightobj(false)
+    //2
+    currentDatabaseIndex = index
+    //3
+    let databaseView = horizontalScrollerView.view(at: currentDatabaseIndex) as! objView
+    databaseView.highlightobj(true)
+    //4
+  }
+}
 
+extension ImageViewController: VerticalViewDataSource {
+  func numberOfViews(in horizontalScrollerView: VerticalScrollerView) -> Int {
+    return databases.count
+  }
+  
+  func getScrollerViewItem(_ horizontalScrollerView: VerticalScrollerView, viewAt index: Int) -> UIView {
+    print(databases[index].path)
+    let objView = objView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), objURL: databases[index])
+
+    objView.delegate = self
+    
+    if currentDatabaseIndex == index {
+        objView.highlightobj(true)
+    } else {
+        objView.highlightobj(false)
+    }
+
+    return objView
+  }
+}
+
+extension ImageViewController: objViewDelegate {
+    
+    
+    func objShared(objURL: URL) {
+        self.dismiss(animated: true)
+        self.shareFile(objURL)
+    }
+    
+    func objRenamed(objURL: URL) {
+        self.dismiss(animated: true)
+        
+        if(openedDatabasePath?.lastPathComponent == objURL.lastPathComponent)
+        {
+            let alertController = UIAlertController(title: "Rename Database", message: "Database \(objURL.lastPathComponent) is already opened, cannot rename it.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+            return
+        }
+        
+        self.rename(fileURL: objURL)
+    }
+    
+    func rename(fileURL: URL)
+    {
+        //Step : 1
+        let alert = UIAlertController(title: "Rename Scan", message: "Scan Database Name (*.db):", preferredStyle: .alert )
+        //Step : 2
+        let rename = UIAlertAction(title: "Rename", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            if textField.text != "" {
+                //Read TextFields text data
+                let fileName = textField.text!+".db"
+                let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
+                if FileManager.default.fileExists(atPath: filePath) {
+                    let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
+                    let yes = UIAlertAction(title: "Yes", style: .default) {
+                        (UIAlertAction) -> Void in
+                        
+                        do {
+                            try FileManager.default.moveItem(at: fileURL, to: URL(fileURLWithPath: filePath))
+                            print("File \(fileURL) renamed to \(filePath)")
+                        }
+                        catch {
+                            print("Error renaming file \(fileURL) to \(filePath)")
+                        }
+                       // self.openLibrary()
+                    }
+                    alert.addAction(yes)
+                    let no = UIAlertAction(title: "No", style: .cancel) {
+                        (UIAlertAction) -> Void in
+                    }
+                    alert.addAction(no)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    do {
+                        try FileManager.default.moveItem(at: fileURL, to: URL(fileURLWithPath: filePath))
+                        print("File \(fileURL) renamed to \(filePath)")
+                    }
+                    catch {
+                        print("Error renaming file \(fileURL) to \(filePath)")
+                    }
+                    //self.openLibrary()
+                }
+            }
+        }
+
+        //Step : 3
+        alert.addTextField { (textField) in
+            var components = fileURL.lastPathComponent.components(separatedBy: ".")
+            if components.count > 1 { // If there is a file extension
+              components.removeLast()
+                textField.text = components.joined(separator: ".")
+            } else {
+                textField.text = fileURL.lastPathComponent
+            }
+        }
+
+        //Step : 4
+        alert.addAction(rename)
+        //Cancel action
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default) { (alertAction) in })
+
+        self.present(alert, animated: true) {
+            alert.textFields?.first?.selectAll(nil)
+        }
+    }
+    
+    func shareFile(_ fileUrl: URL) {
+        let fileURL = NSURL(fileURLWithPath: fileUrl.path)
+
+        // Create the Array which includes the files you want to share
+        var filesToShare = [Any]()
+
+        // Add the path of the file to the Array
+        filesToShare.append(fileURL)
+
+        // Make the activityViewContoller which shows the share-view
+        let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+        
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+
+        // Show the share-view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func objDeleted(objURL: URL) {
+        self.dismiss(animated: true)
+        
+        if(openedDatabasePath?.lastPathComponent == objURL.lastPathComponent)
+        {
+            let alertController = UIAlertController(title: "Delete Database", message: "Database \(objURL.lastPathComponent) is already opened, cannot delete it.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+            return
+        }
+        
+        do {
+            try FileManager.default.removeItem(at: objURL)
+            print("File \(objURL) deleted")
+        }
+        catch {
+            print("Error deleting file \(objURL)")
+        }
+        self.updateDatabases()
+        if(!databases.isEmpty)
+        {
+            //self.openLibrary()
+        }
+        else {
+            //self.updateState(state: self.mState)
+        }
+    }
+  }

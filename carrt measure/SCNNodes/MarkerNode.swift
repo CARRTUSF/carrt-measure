@@ -27,3 +27,29 @@ class MarkerNode: SCNNode {
     required init?(coder aDecoder: NSCoder) { fatalError("Coder Not Implemented") }
 
 }
+
+class MarkerNodeV2: SCNNode {
+
+    /// Creates A Spherical Marker Node From A matrix_float4x4
+    ///
+    /// - Parameter matrix: matrix_float4x4
+    init(fromMatrix matrix: simd_float3 ) {
+        
+        super.init()
+        
+        //1. Convert The 3rd Column Values To Float
+        let x = matrix.x
+        let y = matrix.y
+        let z = matrix.z
+        
+        //2. Create A Marker Node At The Detected Matrixes Position
+        let markerNodeGeometry = SCNSphere(radius: 0.03)
+        markerNodeGeometry.firstMaterial?.diffuse.contents = UIColor.cyan
+        self.geometry = markerNodeGeometry
+        self.position = SCNVector3(x, y, z)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError("Coder Not Implemented") }
+
+}

@@ -17,9 +17,10 @@ class MeasuringLineNode: SCNNode{
         let nodeZAlign = SCNNode()
         nodeZAlign.eulerAngles.x = Float.pi/2
         
-        let box = SCNBox(width: 0.001, height: height, length: 0.001, chamferRadius: 0)
+        let box = SCNBox(width: 0.01, height: height, length: 0.01, chamferRadius: 0)
+        
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.white
+        material.diffuse.contents = UIColor.blue
         box.materials = [material]
         
         let nodeLine = SCNNode(geometry: box)

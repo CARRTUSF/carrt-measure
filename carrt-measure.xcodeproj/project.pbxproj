@@ -66,6 +66,17 @@
 		AC0934B9268668F60032BB37 /* BoxBasicErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0934B8268668F60032BB37 /* BoxBasicErrorView.swift */; };
 		AC0934BB268669EB0032BB37 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0934BA268669EB0032BB37 /* Constants.swift */; };
 		AC0934BF268696910032BB37 /* BoxSync.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0934BE268696910032BB37 /* BoxSync.storyboard */; };
+		AC24225726A4E3620020459B /* MathHelper_LidarScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24225626A4E3620020459B /* MathHelper_LidarScan.swift */; };
+		AC24226326A655440020459B /* objPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24226226A655440020459B /* objPreviewViewController.swift */; };
+		AC24226526A65FDD0020459B /* objView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC24226426A65FDD0020459B /* objView.storyboard */; };
+		AC24226B26A6664E0020459B /* living_room.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AC24226826A6664E0020459B /* living_room.mtl */; };
+		AC24226C26A6664E0020459B /* living_room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC24226926A6664E0020459B /* living_room.jpg */; };
+		AC24226D26A6664E0020459B /* living_room.obj in Resources */ = {isa = PBXBuildFile; fileRef = AC24226A26A6664E0020459B /* living_room.obj */; };
+		AC24226F26A683D90020459B /* livingroom.zip in Resources */ = {isa = PBXBuildFile; fileRef = AC24226E26A683D90020459B /* livingroom.zip */; };
+		AC24229D26A9DAB50020459B /* carrt-lab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC24229A26A9DAB50020459B /* carrt-lab.jpg */; };
+		AC24229E26A9DAB50020459B /* carrt-lab.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AC24229B26A9DAB50020459B /* carrt-lab.mtl */; };
+		AC24229F26A9DAB50020459B /* carrt-lab.obj in Resources */ = {isa = PBXBuildFile; fileRef = AC24229C26A9DAB50020459B /* carrt-lab.obj */; };
+		AC2422A126AE2C360020459B /* objViewRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2422A026AE2C360020459B /* objViewRaw.swift */; };
 		AC32582826A3363800C169A2 /* libopencv_ccalib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C326A3363600C169A2 /* libopencv_ccalib.a */; };
 		AC32582926A3363800C169A2 /* libboost_signals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C426A3363600C169A2 /* libboost_signals.a */; };
 		AC32582A26A3363800C169A2 /* libopencv_objdetect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3257C526A3363600C169A2 /* libopencv_objdetect.a */; };
@@ -287,6 +298,17 @@
 		AC0934B8268668F60032BB37 /* BoxBasicErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxBasicErrorView.swift; sourceTree = "<group>"; };
 		AC0934BA268669EB0032BB37 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC0934BE268696910032BB37 /* BoxSync.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxSync.storyboard; sourceTree = "<group>"; };
+		AC24225626A4E3620020459B /* MathHelper_LidarScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathHelper_LidarScan.swift; sourceTree = "<group>"; };
+		AC24226226A655440020459B /* objPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objPreviewViewController.swift; sourceTree = "<group>"; };
+		AC24226426A65FDD0020459B /* objView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = objView.storyboard; sourceTree = "<group>"; };
+		AC24226826A6664E0020459B /* living_room.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = living_room.mtl; sourceTree = "<group>"; };
+		AC24226926A6664E0020459B /* living_room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = living_room.jpg; sourceTree = "<group>"; };
+		AC24226A26A6664E0020459B /* living_room.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = living_room.obj; sourceTree = "<group>"; };
+		AC24226E26A683D90020459B /* livingroom.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = livingroom.zip; sourceTree = "<group>"; };
+		AC24229A26A9DAB50020459B /* carrt-lab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "carrt-lab.jpg"; sourceTree = "<group>"; };
+		AC24229B26A9DAB50020459B /* carrt-lab.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "carrt-lab.mtl"; sourceTree = "<group>"; };
+		AC24229C26A9DAB50020459B /* carrt-lab.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "carrt-lab.obj"; sourceTree = "<group>"; };
+		AC2422A026AE2C360020459B /* objViewRaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objViewRaw.swift; sourceTree = "<group>"; };
 		AC3257C326A3363600C169A2 /* libopencv_ccalib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_ccalib.a; path = "carrt measure/Libraries/lib/libopencv_ccalib.a"; sourceTree = "<group>"; };
 		AC3257C426A3363600C169A2 /* libboost_signals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_signals.a; path = "carrt measure/Libraries/lib/libboost_signals.a"; sourceTree = "<group>"; };
 		AC3257C526A3363600C169A2 /* libopencv_objdetect.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_objdetect.a; path = "carrt measure/Libraries/lib/libopencv_objdetect.a"; sourceTree = "<group>"; };
@@ -552,6 +574,13 @@
 		4843E869245B5D0E0044669C /* carrt measure */ = {
 			isa = PBXGroup;
 			children = (
+				AC24229A26A9DAB50020459B /* carrt-lab.jpg */,
+				AC24229B26A9DAB50020459B /* carrt-lab.mtl */,
+				AC24229C26A9DAB50020459B /* carrt-lab.obj */,
+				AC24226E26A683D90020459B /* livingroom.zip */,
+				AC24226926A6664E0020459B /* living_room.jpg */,
+				AC24226826A6664E0020459B /* living_room.mtl */,
+				AC24226A26A6664E0020459B /* living_room.obj */,
 				AC062E7226A38FF1007E0891 /* tango-gl */,
 				AC062DB626A37F12007E0891 /* NativeWrapper */,
 				AC79FB6826A25C6000680A07 /* LidarScanModuleViewController.swift */,
@@ -591,6 +620,10 @@
 				AC86609C269800F7001628B9 /* Carrt Measure-Bridging-Header.h */,
 				AC79FAA3269906A600680A07 /* LoginViewController.swift */,
 				AC79FAA5269908BD00680A07 /* LoginAndSignup.storyboard */,
+				AC24225626A4E3620020459B /* MathHelper_LidarScan.swift */,
+				AC24226226A655440020459B /* objPreviewViewController.swift */,
+				AC24226426A65FDD0020459B /* objView.storyboard */,
+				AC2422A026AE2C360020459B /* objViewRaw.swift */,
 			);
 			path = "carrt measure";
 			sourceTree = "<group>";
@@ -907,16 +940,24 @@
 			files = (
 				ACF418AF268933B000313292 /* ImageView.storyboard in Resources */,
 				80DFF60426193E1C0018E463 /* DisplayCustInfoViewController.xib in Resources */,
+				AC24229D26A9DAB50020459B /* carrt-lab.jpg in Resources */,
 				806325F62629497300767F50 /* ImagePickViewController.xib in Resources */,
 				AC79FB7526A25C6000680A07 /* LidarScanModule.storyboard in Resources */,
 				8063266E262D112600767F50 /* EmployeeViewController.xib in Resources */,
 				AC46DAF22695002000D89070 /* LoginAndSignup.storyboard in Resources */,
 				809A829F264607E9005013A3 /* Main.storyboard in Resources */,
+				AC24229E26A9DAB50020459B /* carrt-lab.mtl in Resources */,
+				AC24226F26A683D90020459B /* livingroom.zip in Resources */,
+				AC24226B26A6664E0020459B /* living_room.mtl in Resources */,
 				806325E726266E9800767F50 /* RoomViewController.xib in Resources */,
 				809A829C263C839D005013A3 /* LaunchScreen.storyboard in Resources */,
+				AC24226C26A6664E0020459B /* living_room.jpg in Resources */,
+				AC24229F26A9DAB50020459B /* carrt-lab.obj in Resources */,
 				4843E874245B5D0F0044669C /* Assets.xcassets in Resources */,
 				AC86609B26980087001628B9 /* Settings.bundle in Resources */,
+				AC24226D26A6664E0020459B /* living_room.obj in Resources */,
 				AC0934BF268696910032BB37 /* BoxSync.storyboard in Resources */,
+				AC24226526A65FDD0020459B /* objView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1035,7 @@
 				AC79FAFD269915B900680A07 /* MathsHelpers.swift in Sources */,
 				AC062DCB26A37F12007E0891 /* graph_drawable.cpp in Sources */,
 				806325E626266E9800767F50 /* RoomViewController.swift in Sources */,
+				AC24225726A4E3620020459B /* MathHelper_LidarScan.swift in Sources */,
 				AC062EBC26A38FF2007E0891 /* cube.cpp in Sources */,
 				AC062EB426A38FF2007E0891 /* drawable_object.cpp in Sources */,
 				AC062EA726A38FF2007E0891 /* line.cpp in Sources */,
@@ -1001,6 +1043,7 @@
 				AC062EB026A38FF2007E0891 /* gesture_camera.cpp in Sources */,
 				AC062EB526A38FF2007E0891 /* frustum.cpp in Sources */,
 				AC79FAFE269915B900680A07 /* ARSettings.swift in Sources */,
+				AC2422A126AE2C360020459B /* objViewRaw.swift in Sources */,
 				AC062DC926A37F12007E0891 /* point_cloud_drawable.cpp in Sources */,
 				AC79FB00269915B900680A07 /* RoundButton.swift in Sources */,
 				AC09346E26840BC50032BB37 /* commonData.swift in Sources */,
@@ -1038,6 +1081,7 @@
 				AC062DCA26A37F12007E0891 /* scene.cpp in Sources */,
 				AC062DC826A37F12007E0891 /* RTABMapApp.cpp in Sources */,
 				AC0934B7268668160032BB37 /* BoxSyncViewController.swift in Sources */,
+				AC24226326A655440020459B /* objPreviewViewController.swift in Sources */,
 				AC062DCE26A37F12007E0891 /* CameraMobile.cpp in Sources */,
 				AC062DCC26A37F12007E0891 /* NativeWrapper.cpp in Sources */,
 				AC0934B9268668F60032BB37 /* BoxBasicErrorView.swift in Sources */,

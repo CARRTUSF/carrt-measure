@@ -4,9 +4,9 @@
 //
 //  Created by Mathieu Labbe on 2020-12-28.
 //
-//#if os(iOS)
-//    import AuthenticationServices
-//#endif
+#if os(iOS)
+    import AuthenticationServices
+#endif
 import BoxPreviewSDK
 import BoxSDK
 import GLKit
@@ -19,8 +19,13 @@ extension Array {
     }
 }
 
-class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABMapObserver, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
+class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABMapObserver, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate,ASWebAuthenticationPresentationContextProviding {
+    private var sdk: BoxSDK!
     var model: dataPassage!
+    private var client: BoxClient!
+    var filePath: String = ""
+    var fileName: String = ""
+    var passfilePath: URL!
     private let session = ARSession()
     private var locationManager: CLLocationManager?
     private var mLastKnownLocation: CLLocation?
@@ -105,6 +110,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     @IBOutlet weak var libraryButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var closeVisualizationButton: UIButton!
+    @IBOutlet weak var takeScreenshotButton: UIButton!
     @IBOutlet weak var stopCameraButton: UIButton!
     @IBOutlet weak var exportOBJPLYButton: UIButton!
     @IBOutlet weak var orthoDistanceSlider: UISlider!{
@@ -177,7 +183,8 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        sdk = BoxSDK(clientId: Constants.clientId, clientSecret: Constants.clientSecret)
+        getOAuthClient()
         self.toastLabel.isHidden = true
         session.delegate = self
         
@@ -193,6 +200,8 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             view.context = context
             delegate = self
             rtabmap?.initGlContent()
+            
+            
         }
         
         menuButton.showsMenuAsPrimaryAction = true
@@ -235,6 +244,145 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             self.updateState(state: self.mState)
         }
     }
+    
+    func screenShotMethod() -> UIImage? {
+        //Create the UIImage
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+//    func snapshot(view: UIView) -> UIImage {
+//         UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+//        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        let snapshot = UIGraphicsGetImageFromCurrentImageContext()!
+//         UIGraphicsEndImageContext()
+//
+//         return snapshot
+//    }
+
+    func getOAuthClient() {
+        
+        if #available(iOS 13, *) {
+            sdk.getOAuth2Client(tokenStore: KeychainTokenStore(), context:self) { [weak self] result in
+                switch result {
+                case let .success(client):
+                    self?.client = client
+              
+                   
+                case let .failure(error):
+                    print("error in getOAuth2Client: \(error)")
+                    
+                }
+            }
+        } else {
+            sdk.getOAuth2Client(tokenStore: KeychainTokenStore()) { [weak self] result in
+                switch result {
+                case let .success(client):
+                    self?.client = client
+                    
+                    
+                case let .failure(error):
+                    print("error in getOAuth2Client: \(error)")
+                    
+                }
+            }
+        }
+    }
+    
+    @IBAction func takeScreenShot(_ sender: UIButton) {
+        
+        
+        let storyBoardController:UIStoryboard = UIStoryboard(name: "objView", bundle: nil)
+        let viewController : objPreviewViewController = storyBoardController.instantiateViewController(withIdentifier: "objView") as! objPreviewViewController
+        viewController.fileName = fileName
+        viewController.filePath = passfilePath
+        
+
+      
+        //print(self.passName)
+        //print(self.roomName)
+         
+         self.navigationController!.pushViewController(viewController, animated: true)
+        
+        
+        
+       
+//
+//        let  renderedImage = screenShotMethod()?.pngData()
+//        //let renderedImage = self.augmentedRealityView.snapshot().pngData()
+//        print("snapshot captured")
+//
+//
+//        let alertController = UIAlertController(title: "Add Image", message: "", preferredStyle: .alert)
+//
+//
+//        //var owner:String = ""        // When the user clicks the add button, present them with a dialog to enter the task name.
+//        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { [self]
+//            _ -> Void in
+//            let textField = alertController.textFields![0] as UITextField
+//            print("Adding Image: \(String(describing: textField.text))")
+//
+//
+//            var Imagename: String? {
+//                get {
+//                    return textField.text
+//                }
+//            }
+//            guard let imgData = renderedImage else { return  }
+//
+//            DispatchQueue.global().async {
+//
+//            let _: BoxUploadTask = client.files.upload(data: imgData, name: "\(String(describing: Imagename!)).jpg", parentId: model.roomID) { (result: Result<File, BoxSDKError>) in
+//                guard case let .success(file) = result else {
+//                    print("Error uploading file")
+//                    return
+//                }
+//
+//                print("File \(String(describing: file.name)) was uploaded at \(String(describing: file.createdAt)) into \"\(String(describing: file.parent?.name))\"")
+//
+//
+////                let alert = UIAlertController(title: "Image Upload", message: "Image is uploaded to your Box", preferredStyle: .alert)
+////                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+////                NSLog("The \"OK\" alert occured.")
+////                }))
+////                self.present(alert, animated: true, completion: nil)
+//            }
+//            }
+//
+//
+//
+//            /*user.functions.addRoom([AnyBSON(id), AnyBSON(name!), AnyBSON(passName), AnyBSON(roomid)], self.onTeamMemberOperationComplete)*/
+//            //let room = Room(partition: self.partitionValue, name: textField.text ?? "New Room")
+//
+//            // Any writes to the Realm must occur in a write block.
+//            //try! self.realm.write {
+//                // Add the Task to the Realm. That's it!
+//                //self.realm.add(room)
+//            //}
+//
+//        }))
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//        alertController.addTextField(configurationHandler: { (textField: UITextField!) -> Void in
+//            textField.placeholder = "New Image Name"
+//        })
+//
+//        // Show the dialog.
+//        self.present(alertController, animated: true, completion: nil)
+//        /*if let data = tempImage.pngData() { // convert your UIImage into Data object using png representation
+//              FirebaseStorageManager().uploadImageData(data: data, serverFileName: "your_server_file_name.png") { (isSuccess, url) in
+//                     print("uploadImageData: \(isSuccess), \(url)")
+//               }
+//        }*/
+//
+//
+//
+//        //self.dismiss(animated: true, completion: nil)
+        
+    }
+    
     
     func progressUpdated(_ rtabmap: RTABMap, count: Int, max: Int) {
         DispatchQueue.main.async {
@@ -459,7 +607,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
         
         if(mMapNodes > 0 && self.openedDatabasePath == nil)
         {
-            let msg = "RTAB-Map has been pushed to background while mapping. Do you want to save the map now?"
+            let msg = "Scan has been pushed to background while mapping. Do you want to save the map now?"
             let alert = UIAlertController(title: "Mapping Stopped!", message: msg, preferredStyle: .alert)
             let alertActionNo = UIAlertAction(title: "Ignore", style: .cancel) {
                 (UIAlertAction) -> Void in
@@ -598,6 +746,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             recordButton.isHidden = false
             stopButton.isHidden = true
             closeVisualizationButton.isHidden = true
+            takeScreenshotButton.isHidden = true
             stopCameraButton.isHidden = false
             exportOBJPLYButton.isHidden = true
             orthoDistanceSlider.isHidden = cameraMode != 3
@@ -617,6 +766,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             recordButton.isHidden = true
             stopButton.isHidden = false
             closeVisualizationButton.isHidden = true
+            takeScreenshotButton.isHidden = true
             stopCameraButton.isHidden = true
             exportOBJPLYButton.isHidden = true
             orthoDistanceSlider.isHidden = cameraMode != 3 || !mHudVisible
@@ -638,6 +788,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             recordButton.isHidden = true
             stopButton.isHidden = true
             closeVisualizationButton.isHidden = true
+            takeScreenshotButton.isHidden = true
             stopCameraButton.isHidden = mState != .STATE_VISUALIZING_CAMERA
             exportOBJPLYButton.isHidden = true
             orthoDistanceSlider.isHidden = cameraMode != 3 || mState != .STATE_VISUALIZING_WHILE_LOADING
@@ -657,6 +808,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             recordButton.isHidden = true
             stopButton.isHidden = true
             closeVisualizationButton.isHidden = !mHudVisible
+            takeScreenshotButton.isHidden = !mHudVisible
             stopCameraButton.isHidden = true
             exportOBJPLYButton.isHidden = !mHudVisible
             orthoDistanceSlider.isHidden = cameraMode != 3 || !mHudVisible
@@ -676,6 +828,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             recordButton.isHidden = true
             stopButton.isHidden = true
             closeVisualizationButton.isHidden = true
+            takeScreenshotButton.isHidden = true
             stopCameraButton.isHidden = true
             exportOBJPLYButton.isHidden = true
             orthoDistanceSlider.isHidden = cameraMode != 3 || !mHudVisible
@@ -1157,6 +1310,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             if (firstTouch == nil) {
                 firstTouch = touch
                 let pose = touch.location(in: self.view)
+                print(pose)
                 let normalizedX = pose.x / self.view.bounds.size.width;
                 let normalizedY = pose.y / self.view.bounds.size.height;
                 rtabmap?.onTouchEvent(touch_count: 1, event: 0, x0: Float(normalizedX), y0: Float(normalizedY), x1: 0.0, y1: 0.0);
@@ -1850,7 +2004,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     func rename(fileURL: URL)
     {
         //Step : 1
-        let alert = UIAlertController(title: "Rename Scan", message: "RTAB-Map Database Name (*.db):", preferredStyle: .alert )
+        let alert = UIAlertController(title: "Rename Scan", message: "Scan Database Name (*.db):", preferredStyle: .alert )
         //Step : 2
         let rename = UIAlertAction(title: "Rename", style: .default) { (alertAction) in
             let textField = alert.textFields![0] as UITextField
@@ -1923,9 +2077,10 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             if textField.text != "" {
                 self.dismiss(animated: true)
                 //Read TextFields text data
-                let fileName = textField.text!+".zip"
-                let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
-                if FileManager.default.fileExists(atPath: filePath) {
+                self.fileName = textField.text!+".zip"
+                self.filePath = self.getDocumentDirectory().appendingPathComponent(self.fileName).path
+               
+                if FileManager.default.fileExists(atPath: self.filePath) {
                     let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
                     let yes = UIAlertAction(title: "Yes", style: .default) {
                         (UIAlertAction) -> Void in
@@ -2023,6 +2178,8 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
                                 zipFileUrl = try Zip.quickZipFiles(fileURLs, fileName: fileName) // Zip
                                 print("Zip file \(zipFileUrl.path) created (size=\(zipFileUrl.fileSizeString)")
                                 success = true
+                                self.passfilePath = zipFileUrl
+                                
                             }
                             catch {
                               print("Something went wrong while zipping")
@@ -2041,7 +2198,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
                 }
                 if(success)
                 {
-                    let alertShare = UIAlertController(title: "Mesh/Cloud Saved!", message: "\(fileName+".zip") (\(zipFileUrl.fileSizeString) successfully exported in Documents of RTAB-Map! Share it?", preferredStyle: .alert)
+                    let alertShare = UIAlertController(title: "Mesh/Cloud Saved!", message: "\(fileName+".zip") (\(zipFileUrl.fileSizeString) successfully exported in Documents of Carrt-Measure! Share it?", preferredStyle: .alert)
                     let alertActionYes = UIAlertAction(title: "Yes", style: .default) {
                         (UIAlertAction) -> Void in
                         self.shareFile(zipFileUrl)
@@ -2170,6 +2327,10 @@ func clearBackgroundColor(of view: UIView) {
     view.subviews.forEach { (subview) in
         clearBackgroundColor(of: subview)
     }
+    
+    
+    
+    
 }
 
 extension LidarScanModuleViewController: GLKViewControllerDelegate {
@@ -2188,6 +2349,7 @@ extension LidarScanModuleViewController: GLKViewControllerDelegate {
         }
         
         let value = rtabmap?.render()
+        
         
         DispatchQueue.main.async {
             if(value != 0 && self.progressView != nil)
@@ -2326,4 +2488,12 @@ extension UserDefaults {
         setDefaultsFromSettingsBundle()
         
     }
+}
+extension LidarScanModuleViewController {
+    @available(iOS 13.0, *)
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return self.view.window ?? ASPresentationAnchor()
+    }
+    
+    
 }
