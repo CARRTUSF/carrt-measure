@@ -14,7 +14,7 @@ import BoxPreviewSDK
 import BoxSDK
 import UIKit
 import Photos
-
+import Zip
 
 
 class ImageViewController: UITableViewController, ASWebAuthenticationPresentationContextProviding, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -27,9 +27,12 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
     private var client: BoxClient!
     private var previewSDK: BoxPreviewSDK?
     private var folderItems: [FolderItem] = []
-    var filePath: String = ""
+    var filePath: URL!
     var fileName: String = ""
+    var unzipDirectory: URL!
     var passfilePath: URL!
+    
+    var passName: String = ""
     private var openedDatabasePath: URL?
     private var currentDatabaseIndex: Int = 0
     private var databases = [URL]()
@@ -96,7 +99,7 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
     {
         databases.removeAll()
         do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: getDocumentDirectory(), includingPropertiesForKeys: nil)
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: getDocumentDirectory().appendingPathComponent("/\(passName)/\(roomName)"), includingPropertiesForKeys: nil)
             // if you want to filter the directory contents you can do like this:
             
             let data = fileURLs.map { url in
@@ -143,8 +146,9 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
 
             let selectAction = UIAlertAction(title: "Select", style: .default) { (action) in
                 self.openObjViewer(fileUrl: self.databases[self.currentDatabaseIndex])
+                print("zip file url is \(self.databases[self.currentDatabaseIndex])" )
             }
-            
+              
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(selectAction)
             alertController.addAction(cancelAction)
@@ -155,11 +159,15 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
     
     
     func openObjViewer(fileUrl: URL) {
+        
+        //unzipObjfile(fileUrl: filePath)
+        
         let storyBoardController:UIStoryboard = UIStoryboard(name: "objView", bundle: nil)
         let viewController : objPreviewViewController =  storyBoardController.instantiateViewController(withIdentifier: "objView") as! objPreviewViewController
         
+       
         viewController.filePath = fileUrl
-        viewController.fileName = fileUrl.lastPathComponent
+        viewController.fileName = fileUrl.lastPathComponent//.replacingOccurrences(of: ".zip", with: ".obj")
          self.navigationController!.pushViewController(viewController, animated: true)
         
         
@@ -207,7 +215,8 @@ class ImageViewController: UITableViewController, ASWebAuthenticationPresentatio
            print("3D Scan selected....")
             let storyBoardController:UIStoryboard = UIStoryboard(name: "LidarScanModule", bundle: nil)
             let viewController : LidarScanModuleViewController = storyBoardController.instantiateViewController(withIdentifier: "LidarScanModule") as! LidarScanModuleViewController
-            
+            viewController.CustomerName = passName
+            viewController.RoomName = roomName
             viewController.model = model
              
              self.navigationController!.pushViewController(viewController, animated: true)
@@ -456,6 +465,24 @@ private extension ImageViewController {
             }
         }
     }
+    
+    func unzipObjfile(fileUrl: URL){
+        let fileManager = FileManager()
+        //let currentWorkingPath = fileManager.currentDirectoryPath
+        //var sourceURL = fileUrl
+        //sourceURL.appendPathComponent("file.txt")
+        //var destinationURL = URL(fileURLWithPath: currentWorkingPath)
+       // destinationURL.appendPathComponent("archive.zip")
+        do {
+             unzipDirectory = try Zip.quickUnzipFile(fileUrl)
+            print("Directory unzipped")
+            print(try fileManager.contentsOfDirectory(at: unzipDirectory, includingPropertiesForKeys: [.nameKey, .fileSizeKey]))
+            
+        } catch {
+            print("Creation of ZIP archive failed with error:\(error)")
+        }
+        
+    }
 
     @objc func getSinglePageOfFolderItems() {
         client.folders.listItems(
@@ -671,7 +698,7 @@ extension ImageViewController: objViewDelegate {
             if textField.text != "" {
                 //Read TextFields text data
                 let fileName = textField.text!+".db"
-                let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
+                let filePath = self.getDocumentDirectory().appendingPathComponent("/\(self.passName)/\(self.roomName)/\(fileName)").path
                 if FileManager.default.fileExists(atPath: filePath) {
                     let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
                     let yes = UIAlertAction(title: "Yes", style: .default) {

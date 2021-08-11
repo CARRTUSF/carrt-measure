@@ -15,8 +15,8 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
 	var imagePicker : UIImagePickerController = UIImagePickerController()
-	
-	var passName:String = ""
+    var passName:String = ""
+	var passId:String = ""
     var customerFolderID: String = ""
 	var url:String = ""
     let tableView = UITableView()
@@ -52,14 +52,14 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
 		super.viewDidLoad()
 		
-		setupLongPressGesture()
+		//setupLongPressGesture()
 		tableView.dataSource = self
 		tableView.delegate = self
 		tableView.frame = self.view.frame
         
         view.addSubview(tableView)
 		//NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: ManageTeamViewController.notificationName, object: nil)
-		print(passName)
+		print(passId)
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonDidClick))
 		/*let imageView = UIImageView(frame: CGRect(x: 400, y: 80, width: 400, height: 400))
@@ -89,20 +89,30 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	{
 		print(notification.userInfo )
 	}*/
-	func setupLongPressGesture() {
-		
-		let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-		longPressGesture.minimumPressDuration = 1.0
-		//longPressGesture.delegate = self
-		self.tableView.addGestureRecognizer(longPressGesture)
-		
-	}
-	
+//	func setupLongPressGesture() {
+//
+//		let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+//		longPressGesture.minimumPressDuration = 1.0
+//		//longPressGesture.delegate = self
+//		self.tableView.addGestureRecognizer(longPressGesture)
+//
+//	}
+//
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        
+       let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let docURL = URL(string: documentsDirectory)!
+        let dataPath = docURL.appendingPathComponent("/\(passName)/\(Rooms[indexPath.row].name)")
+        if !FileManager.default.fileExists(atPath: dataPath.path) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
         
         
        
@@ -111,12 +121,12 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let storyBoardController:UIStoryboard = UIStoryboard(name: "ImageView", bundle: nil)
         let viewController : ImageViewController = storyBoardController.instantiateViewController(withIdentifier: "ImageView") as! ImageViewController
-        
+        viewController.passName = passName
         viewController.roomName = Rooms[indexPath.row].name
         viewController.model = model
 
       
-        //print(self.passName)
+        //print(self.passId)
         //print(self.roomName)
          
          self.navigationController!.pushViewController(viewController, animated: true)
@@ -126,9 +136,9 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
 
         
-        //viewController.passName = passName
+        //viewController.passId = passId
         //viewController.roomName =  roomName
-        //print(self.passName)
+        //print(self.passId)
         //print(self.roomName)
          
         
@@ -141,7 +151,7 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             roomName = Rooms[indexPath.row].name
             model.roomID = Rooms[indexPath.row].id
             print(model.roomID)
-			/* getRoomImage(name: passName, ImageroomName: ImageroomName)
+			/* getRoomImage(name: passId, ImageroomName: ImageroomName)
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [self] in // Change `2.0` to the desired number of seconds.
 			print("inside delay")
 			
@@ -188,94 +198,94 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 		
 		
 	}
-	@IBAction func handleLongPress(_ gestureRecognizer:UILongPressGestureRecognizer){
-		
-		
-		if gestureRecognizer.state == .began {
-			let touchPoint = gestureRecognizer.location(in: self.tableView)
-			
-			
-				
-			
-			if let indexPath = tableView.indexPathForRow(at: touchPoint){
-				
-				roomName = Rooms[indexPath.row].name
-				
-				// User selected a task in the table. We will present a list of actions that the user can perform on this task.
-				
-				let alertController : UIAlertController = UIAlertController(title: "Title", message: "Select Camera or Photo Library", preferredStyle: .actionSheet)
-				let cameraAction : UIAlertAction = UIAlertAction(title: "Camera", style: .default, handler: { [self] (cameraAction) in
-				   
-					print("camera-A Selected...")
-					 
-					let storyBoardController:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-					let viewController : ARViewController = storyBoardController.instantiateViewController(withIdentifier: "Main") as! ARViewController
-					 
-					
-
-					
-					
-					//print(self.passName)
-					//print(self.roomName)
-					 
-					 self.navigationController!.pushViewController(viewController, animated: true)
-					
-					
-					
-					 
-					
-					/*if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) == true {
-						imagePicker.allowsEditing = false
-						self.imagePicker.sourceType = .camera
-					   self.present()
-
-				   }else{
-					self.present(self.showAlert(Title: "Title", Message: "Camera is not available on this Device or accesibility has been revoked!"), animated: true, completion: nil)
-
-				   }*/
-
-			   })
-
-				let libraryAction : UIAlertAction = UIAlertAction(title: "Photo Library", style: .default, handler: { [self](libraryAction) in
-
-				   print("Photo library selected....")
-					
-					if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) == true {
-						imagePicker.allowsEditing = false
-						imagePicker.delegate = self
-						self.imagePicker.sourceType = .photoLibrary
-					   self.present()
-		print("library available")
-				   }else{
-
-					self.present(self.showAlert(Title: "Title", Message: "Photo Library is not available on this Device or accesibility has been revoked!"), animated: true, completion: nil)
-				   }
-			   })
-
-				let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel , handler: {(cancelActn) in
-			   print("Cancel action was pressed")
-			   })
-
-			   alertController.addAction(cameraAction)
-
-			   alertController.addAction(libraryAction)
-
-			   alertController.addAction(cancelAction)
-
-			   //alertController.popoverPresentationController?.sourceView = view
-			   //alertController.popoverPresentationController?.sourceRect = view.frame
-				
-				
-				if let popoverController = alertController.popoverPresentationController {
-				  popoverController.sourceView = self.view
-				  popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-				  popoverController.permittedArrowDirections = []
-				}
-
-				self.present(alertController, animated: true, completion: nil)
-}
-		}
-	}
+//	@IBAction func handleLongPress(_ gestureRecognizer:UILongPressGestureRecognizer){
+//
+//
+//		if gestureRecognizer.state == .began {
+//			let touchPoint = gestureRecognizer.location(in: self.tableView)
+//
+//
+//
+//
+//			if let indexPath = tableView.indexPathForRow(at: touchPoint){
+//
+//				roomName = Rooms[indexPath.row].name
+//
+//				// User selected a task in the table. We will present a list of actions that the user can perform on this task.
+//
+//				let alertController : UIAlertController = UIAlertController(title: "Title", message: "Select Camera or Photo Library", preferredStyle: .actionSheet)
+//				let cameraAction : UIAlertAction = UIAlertAction(title: "Camera", style: .default, handler: { [self] (cameraAction) in
+//
+//					print("camera-A Selected...")
+//
+//					let storyBoardController:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//					let viewController : ARViewController = storyBoardController.instantiateViewController(withIdentifier: "Main") as! ARViewController
+//
+//
+//
+//
+//
+//					//print(self.passId)
+//					//print(self.roomName)
+//
+//					 self.navigationController!.pushViewController(viewController, animated: true)
+//
+//
+//
+//
+//
+//					/*if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) == true {
+//						imagePicker.allowsEditing = false
+//						self.imagePicker.sourceType = .camera
+//					   self.present()
+//
+//				   }else{
+//					self.present(self.showAlert(Title: "Title", Message: "Camera is not available on this Device or accesibility has been revoked!"), animated: true, completion: nil)
+//
+//				   }*/
+//
+//			   })
+//
+//				let libraryAction : UIAlertAction = UIAlertAction(title: "Photo Library", style: .default, handler: { [self](libraryAction) in
+//
+//				   print("Photo library selected....")
+//
+//					if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) == true {
+//						imagePicker.allowsEditing = false
+//						imagePicker.delegate = self
+//						self.imagePicker.sourceType = .photoLibrary
+//					   self.present()
+//		print("library available")
+//				   }else{
+//
+//					self.present(self.showAlert(Title: "Title", Message: "Photo Library is not available on this Device or accesibility has been revoked!"), animated: true, completion: nil)
+//				   }
+//			   })
+//
+//				let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel , handler: {(cancelActn) in
+//			   print("Cancel action was pressed")
+//			   })
+//
+//			   alertController.addAction(cameraAction)
+//
+//			   alertController.addAction(libraryAction)
+//
+//			   alertController.addAction(cancelAction)
+//
+//			   //alertController.popoverPresentationController?.sourceView = view
+//			   //alertController.popoverPresentationController?.sourceRect = view.frame
+//
+//
+//				if let popoverController = alertController.popoverPresentationController {
+//				  popoverController.sourceView = self.view
+//				  popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+//				  popoverController.permittedArrowDirections = []
+//				}
+//
+//				self.present(alertController, animated: true, completion: nil)
+//}
+//		}
+//	}
 
 	
 	/*func makeUIViewController(context:
@@ -293,11 +303,11 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	
 	
 	
-	func convertBase64StringToImage (imageBase64String:String) -> UIImage {
-		let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
-		let image = UIImage(data: imageData!)
-		return image!
-	}
+//	func convertBase64StringToImage (imageBase64String:String) -> UIImage {
+//		let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
+//		let image = UIImage(data: imageData!)
+//		return image!
+//	}
 	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -353,13 +363,24 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
                 
                 print("Created folder \"\(String(describing: folder.name))\" inside of folder \"\(String(describing: folder.parent?.name))\"")
-                user.functions.addRoom([AnyBSON(id), AnyBSON(name!), AnyBSON(passName), AnyBSON(folder.id),AnyBSON(folder.parent!.id)], self.onTeamMemberOperationComplete)
+                user.functions.addRoom([AnyBSON(id), AnyBSON(name!), AnyBSON(passId), AnyBSON(folder.id),AnyBSON(folder.parent!.id)], self.onTeamMemberOperationComplete)
                 
                 
             }
             
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let docURL = URL(string: documentsDirectory)!
+            let dataPath = docURL.appendingPathComponent("/\(passName)/\(name!)")
+            if !FileManager.default.fileExists(atPath: dataPath.path) {
+                do {
+                    try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
             
-			/*user.functions.addRoom([AnyBSON(id), AnyBSON(name!), AnyBSON(passName), AnyBSON(roomid)], self.onTeamMemberOperationComplete)*/
+			/*user.functions.addRoom([AnyBSON(id), AnyBSON(name!), AnyBSON(passId), AnyBSON(roomid)], self.onTeamMemberOperationComplete)*/
 			//let room = Room(partition: self.partitionValue, name: textField.text ?? "New Room")
 
 			// Any writes to the Realm must occur in a write block.
@@ -385,7 +406,7 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 		
 		let user = app.currentUser!
 
-		user.functions.getCustomerRoomsList([AnyBSON(passName)]) { [weak self](result, error) in
+		user.functions.getCustomerRoomsList([AnyBSON(passId)]) { [weak self](result, error) in
 			DispatchQueue.main.async {
 				guard self != nil else {
 					// This can happen if the view is dismissed
@@ -423,31 +444,31 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	}
 
 
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-		let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-		imageView.image  = tempImage
-		/*if let data = tempImage.pngData() { // convert your UIImage into Data object using png representation
-			  FirebaseStorageManager().uploadImageData(data: data, serverFileName: "your_server_file_name.png") { (isSuccess, url) in
-					 print("uploadImageData: \(isSuccess), \(url)")
-			   }
-		}*/
-		let user = app.currentUser!
-		let name = convertImageToBase64String(img: tempImage)
-		print("adding room image ", roomName)
-		user.functions.addRoomImage([AnyBSON(passName), AnyBSON(roomName), AnyBSON(name)], self.onTeamMemberOperationComplete)
-		
-		
-		
-		self.dismiss(animated: true, completion: nil)
-		
-	}
-	func convertImageToBase64String (img: UIImage) -> String {
-		return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
-	}
-
-	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-		dismiss(animated: true, completion: nil)
-	}
+//	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//		let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//		imageView.image  = tempImage
+//		/*if let data = tempImage.pngData() { // convert your UIImage into Data object using png representation
+//			  FirebaseStorageManager().uploadImageData(data: data, serverFileName: "your_server_file_name.png") { (isSuccess, url) in
+//					 print("uploadImageData: \(isSuccess), \(url)")
+//			   }
+//		}*/
+//		let user = app.currentUser!
+//		let name = convertImageToBase64String(img: tempImage)
+//		print("adding room image ", roomName)
+//		user.functions.addRoomImage([AnyBSON(passId), AnyBSON(roomName), AnyBSON(name)], self.onTeamMemberOperationComplete)
+//
+//
+//
+//		self.dismiss(animated: true, completion: nil)
+//
+//	}
+//	func convertImageToBase64String (img: UIImage) -> String {
+//		return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+//	}
+//
+//	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//		dismiss(animated: true, completion: nil)
+//	}
 
 
 	//Show Alert
@@ -520,13 +541,7 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		guard editingStyle == .delete else { return }
 
-		// User can swipe to delete items.
-		//let room = Rooms[indexPath.row]
-
-		/*try! realm.write {
-			   // Delete the scan.
-			   realm.delete(room)
-		   }*/
+        removeRoom(roomID: Rooms[indexPath.row].id , folderID: Rooms[indexPath.row].roomID, name: Rooms[indexPath.row].name)
 	}
 
     func getOAuthClient() {
@@ -558,54 +573,89 @@ class RoomViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    func removeRoom(roomID: String, folderID: String, name: String) {
+        print("Removing room: \(roomID)")
+        //activityIndicator.startAnimating()
+        let user = app.currentUser!
+
+        user.functions.removeRoom([AnyBSON(roomID)], self.onTeamMemberOperationComplete)
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let docURL = URL(string: documentsDirectory)!
+        let dataPath = docURL.appendingPathComponent("/\(passName)/\(name)")
+        if !FileManager.default.fileExists(atPath: dataPath.path) {
+            do {
+                try FileManager.default.removeItem(at: dataPath)
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+            print("Room folder removed")
+        }
+        
+        
+        client.folders.delete(folderId: folderID, recursive: true) { (result: Result<Void, BoxSDKError>) in
+            guard case .success = result else {
+                print("Error deleting folder")
+                return
+            }
+
+            print("Folder and contents successfully deleted")
+        
+        }
+        
+        
+        
+        
+    }
     
-    
-	func getRoomImage(name: String, ImageroomName: String) {
-		print("fetching image of: \(ImageroomName)")
-		
-		let group = DispatchGroup()
-		group.enter()
-		print("hello")
-		
-		let user = app.currentUser!
-		user.functions.getRoomImage([AnyBSON(passName), AnyBSON(ImageroomName)] ) { [weak self](result, error) in
-			DispatchQueue.main.async { [self] in
-				guard self != nil else {
-					// This can happen if the view is dismissed
-					// before the operation completes
-					print("customer details no longer needed.")
-					return
-				}
-				// Stop loading indicator
-				
-				
-				guard error == nil else {
-					print("Fetch customer details failed: \(error!.localizedDescription)")
-					return
-				}
-				print("Fetch customer details complete.")
-				
-				print(result!)
-				print("hi")
-				group.leave()
-				print("yeah")								// Convert documents to members array
-				self!.ImageFetchedRoomList = result!.arrayValue!.map({ (bson) in
-					return customerRoom(document: bson!.documentValue!)
-					
-					
-				})
-							// Notify UI of changed data
-				
-				
-					}
-			
-			
-		}
-		
-		print("wassup")
-		
-		
-		}
+//	func getRoomImage(name: String, ImageroomName: String) {
+//		print("fetching image of: \(ImageroomName)")
+//
+//		let group = DispatchGroup()
+//		group.enter()
+//		print("hello")
+//
+//		let user = app.currentUser!
+//		user.functions.getRoomImage([AnyBSON(passId), AnyBSON(ImageroomName)] ) { [weak self](result, error) in
+//			DispatchQueue.main.async { [self] in
+//				guard self != nil else {
+//					// This can happen if the view is dismissed
+//					// before the operation completes
+//					print("customer details no longer needed.")
+//					return
+//				}
+//				// Stop loading indicator
+//
+//
+//				guard error == nil else {
+//					print("Fetch customer details failed: \(error!.localizedDescription)")
+//					return
+//				}
+//				print("Fetch customer details complete.")
+//
+//				print(result!)
+//				print("hi")
+//				group.leave()
+//				print("yeah")								// Convert documents to members array
+//				self!.ImageFetchedRoomList = result!.arrayValue!.map({ (bson) in
+//					return customerRoom(document: bson!.documentValue!)
+//
+//
+//				})
+//							// Notify UI of changed data
+//
+//
+//					}
+//
+//
+//		}
+//
+//		print("wassup")
+//
+//
+//		}
 	// Returns true if these are the user's own scans.
 	/*func isOwnRoom() -> Bool {
 		return partitionValue == "project=\(app.currentUser!.id)"

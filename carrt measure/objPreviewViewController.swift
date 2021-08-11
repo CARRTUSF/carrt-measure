@@ -72,14 +72,15 @@ class objPreviewViewController: UIViewController {
     var placeOnPlane = false
     var showFeaturePoints = false
     var placementType: ARHitTestResult.ResultType = .featurePoint
-    var  scene: SCNScene!
-    
+    //var  scene: SCNScene!
+    var  scene =  SCNScene()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //sceneView.backgroundColor = UIColor.gray
        initView()
+        
         initScene()
         
     }
@@ -101,24 +102,35 @@ class objPreviewViewController: UIViewController {
         sceneView.backgroundColor = UIColor.gray
         
         // Allow user translate image
-        sceneView.cameraControlConfiguration.allowsTranslation = false
+        sceneView.cameraControlConfiguration.allowsTranslation = true
         
         
     }
     
     func initScene() {
         
-        
+        //let fileManager = FileManager()
         unzipObjfile(fileUrl: filePath)
+        
         print(filePath as Any)
         print(unzipDirectory as Any)
         
         // 1: Load .obj file
         do {
+            
             let objfileName: String = fileName.replacingOccurrences(of: ".zip", with: ".obj")
             print(objfileName)
-            let objfilePath: String = unzipDirectory.path
-            scene =  SCNScene(named: objfileName, inDirectory: "file:///private/var/mobile/Containers/Data/Application/3C46F766-78D7-41D2-B7B9-EF5F573029CB/Documents/210722-131052/")
+            let objfilePath: String = unzipDirectory.path.replacingOccurrences(of: ".zip", with: "")+"/"
+           // let  fileStrPath = filePath.path.replacingOccurrences(of: ".zip", with: "")+"/"
+            print(objfilePath)
+            
+          
+                
+              // scene =  SCNScene(named: "210801-15.obj", inDirectory: fileStrPath)!
+            scene =   try SCNScene(url: URL(fileURLWithPath: objfilePath+objfileName), options: nil)
+          
+                
+            
             print("scene replaced")
             
             clearMeasurementLabels()
@@ -132,25 +144,25 @@ class objPreviewViewController: UIViewController {
         // 3: Place camera
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 35)
         // 4: Set camera on scene
-            scene?.rootNode.addChildNode(cameraNode)
+            scene.rootNode.addChildNode(cameraNode)
         
         // 5: Adding light to scene
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
         lightNode.light?.type = .omni
         lightNode.position = SCNVector3(x: 0, y: 0, z: 35)
-            scene?.rootNode.addChildNode(lightNode)
+            scene.rootNode.addChildNode(lightNode)
         
         // 6: Creating and adding ambien light to scene
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light?.type = .ambient
         ambientLightNode.light?.color = UIColor.white
-            scene?.rootNode.addChildNode(ambientLightNode)
+            scene.rootNode.addChildNode(ambientLightNode)
         
         
         // Set scene settings
-        sceneView.scene = scene
+            sceneView.scene = scene
         }
         catch {
             print("ERROR loading scene")
@@ -166,7 +178,8 @@ class objPreviewViewController: UIViewController {
         //var destinationURL = URL(fileURLWithPath: currentWorkingPath)
        // destinationURL.appendPathComponent("archive.zip")
         do {
-             unzipDirectory = try Zip.quickUnzipFile(fileUrl)
+            print(fileUrl)
+            unzipDirectory = try Zip.quickUnzipFile(fileUrl)
             print("Directory unzipped")
             print(try fileManager.contentsOfDirectory(at: unzipDirectory, includingPropertiesForKeys: [.nameKey, .fileSizeKey]))
             
@@ -183,7 +196,7 @@ class objPreviewViewController: UIViewController {
     @IBAction func reset(){
         
         //1. Remove All Nodes From The Hierachy
-        scene?.rootNode.enumerateChildNodes { (nodeToRemove, _) in nodeToRemove.removeFromParentNode() }
+        //scene.rootNode.enumerateChildNodes { (nodeToRemove, _) in nodeToRemove.removeFromParentNode() }
         
         //2. Clear The NodesAdded Array
         nodesAdded.removeAll()
@@ -329,7 +342,7 @@ class objPreviewViewController: UIViewController {
     
         //1. Create The Marker Node & Add It  To The Scene
         let markerNode = MarkerNodeV2(fromMatrix: matrix)
-        self.scene?.rootNode.addChildNode(markerNode)
+        self.scene.rootNode.addChildNode(markerNode)
         
         //3. Add It To Our NodesAdded Array
         nodesAdded.append(markerNode)
@@ -347,7 +360,7 @@ class objPreviewViewController: UIViewController {
     
         //1. Create The Marker Node & Add It  To The Scene
         let markerNode = MarkerNode(fromMatrix: matrix)
-        self.scene?.rootNode.addChildNode(markerNode)
+        self.scene.rootNode.addChildNode(markerNode)
         
         //3. Add It To Our NodesAdded Array
         nodesAdded.append(markerNode)
@@ -388,7 +401,7 @@ class objPreviewViewController: UIViewController {
             
             //2. Draw A Line Between The Nodes
             let line = MeasuringLineNode(startingVector: result.nodeA, endingVector: result.nodeB)
-            self.scene?.rootNode.addChildNode(line)
+            self.scene.rootNode.addChildNode(line)
             lineNodes.append(line)
             
             //3. Create The Distance Label
@@ -406,7 +419,7 @@ class objPreviewViewController: UIViewController {
             
             //2. Draw A Line Between The Nodes
             let line = MeasuringLineNode(startingVector: result.nodeA, endingVector: result.nodeB)
-            self.scene?.rootNode.addChildNode(line)
+            self.scene.rootNode.addChildNode(line)
             lineNodes.append(line)
             
             //3. Create The Distance Label
@@ -465,7 +478,7 @@ class objPreviewViewController: UIViewController {
         //4. Create The Distance Label & Add It To The Scene
         let distanceLabel = TextNode(text: "\(formattedDistance)m", colour: .white)
         distanceLabel.placeBetweenNodes(nodeA, and: nodeB)
-        self.scene?.rootNode.addChildNode(distanceLabel)
+        self.scene.rootNode.addChildNode(distanceLabel)
         
         //5. Generate The Measurement Labels
         generateMeasurementLabelsFrom(distance)

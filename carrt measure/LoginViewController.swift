@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
         }
         emailField.isEnabled = !loading
         passwordField.isEnabled = !loading
-        signInButton.isEnabled = !loading
+        //signInButton.isEnabled = !loading
         //signUpButton.isEnabled = !loading
     }
 
@@ -87,8 +87,8 @@ class LoginViewController: UIViewController {
                 print("Signup successful!")
 
                 
-                self!.errorLabel.text = "Signup successful! Signing in..."
-                self!.navigationController!.pushViewController(ManageTeamViewController(), animated: true)
+                self!.errorLabel.text = "Signup successful! please sign in"
+                //self!.navigationController!.pushViewController(ManageTeamViewController(), animated: true)
                 //self!.signIn()
             }
         })

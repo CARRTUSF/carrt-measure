@@ -13,6 +13,7 @@ import GLKit
 import ARKit
 import Zip
 
+
 extension Array {
     func size() -> Int {
         return MemoryLayout<Element>.stride * self.count
@@ -26,6 +27,9 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     var filePath: String = ""
     var fileName: String = ""
     var passfilePath: URL!
+    var RoomName: String = ""
+    
+    var CustomerName: String = ""
     private let session = ARSession()
     private var locationManager: CLLocationManager?
     private var mLastKnownLocation: CLLocation?
@@ -125,7 +129,9 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     let RTABMAP_EXPORT_DIR = "Export"
 
     func getDocumentDirectory() -> URL {
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+       
     }
     
     func getTmpDirectory() -> URL {
@@ -1606,7 +1612,8 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             if textField.text != "" {
                 //Read TextFields text data
                 let fileName = textField.text!+".db"
-                let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
+                let filePath = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(fileName)").path
+                print(filePath)
                 if FileManager.default.fileExists(atPath: filePath) {
                     let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
                     let yes = UIAlertAction(title: "Yes", style: .default) {
@@ -1654,7 +1661,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     
     func saveDatabase(fileName: String)
     {
-        let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
+        let filePath = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(fileName)").path
         
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
         indicator.frame = CGRect(x: 0.0, y: 0.0, width: 60.0, height: 60.0)
@@ -2011,7 +2018,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             if textField.text != "" {
                 //Read TextFields text data
                 let fileName = textField.text!+".db"
-                let filePath = self.getDocumentDirectory().appendingPathComponent(fileName).path
+                let filePath = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(fileName)").path
                 if FileManager.default.fileExists(atPath: filePath) {
                     let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
                     let yes = UIAlertAction(title: "Yes", style: .default) {
@@ -2077,8 +2084,8 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             if textField.text != "" {
                 self.dismiss(animated: true)
                 //Read TextFields text data
-                self.fileName = textField.text!+".zip"
-                self.filePath = self.getDocumentDirectory().appendingPathComponent(self.fileName).path
+                self.fileName = textField.text!
+                self.filePath = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(self.fileName)").path
                
                 if FileManager.default.fileExists(atPath: self.filePath) {
                     let alert = UIAlertController(title: "File Already Exists", message: "Do you want to overwrite the existing file?", preferredStyle: .alert)
@@ -2128,7 +2135,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
 
     func writeExportedFiles(fileName: String)
     {
-        let alertView = UIAlertController(title: "Exporting", message: "Please wait while zipping data to \(fileName+".zip")...", preferredStyle: .alert)
+        let alertView = UIAlertController(title: "Exporting", message: "Please wait while zipping data to \(fileName)...", preferredStyle: .alert)
         alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             self.dismiss(animated: true)
             self.progressView = nil
@@ -2147,7 +2154,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
             self.progressView!.tintColor = self.view.tintColor
             alertView.view.addSubview(self.progressView!)
             
-            let exportDir = self.getTmpDirectory().appendingPathComponent(self.RTABMAP_EXPORT_DIR)
+            let exportDir = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(self.fileName)")
            
             do {
                 try FileManager.default.removeItem(at: exportDir)
@@ -2175,7 +2182,9 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
                         if(!fileURLs.isEmpty)
                         {
                             do {
-                                zipFileUrl = try Zip.quickZipFiles(fileURLs, fileName: fileName) // Zip
+                                zipFileUrl = self.getDocumentDirectory().appendingPathComponent("\(self.CustomerName)/\(self.RoomName)/\(fileName).zip")
+                                try Zip.zipFiles(paths: fileURLs, zipFilePath: zipFileUrl, password: nil, progress: nil)
+                                //zipFileUrl = try Zip.quickZipFiles(fileURLs, fileName: fileName) // Zip
                                 print("Zip file \(zipFileUrl.path) created (size=\(zipFileUrl.fileSizeString)")
                                 success = true
                                 self.passfilePath = zipFileUrl
@@ -2225,7 +2234,7 @@ class LidarScanModuleViewController: GLKViewController, ARSessionDelegate, RTABM
     {
         databases.removeAll()
         do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: getDocumentDirectory(), includingPropertiesForKeys: nil)
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: getDocumentDirectory().appendingPathComponent("\(CustomerName)/\(RoomName)"), includingPropertiesForKeys: nil)
             // if you want to filter the directory contents you can do like this:
             
             let data = fileURLs.map { url in

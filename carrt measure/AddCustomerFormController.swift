@@ -254,6 +254,20 @@ class AddCustomerFormController: UIViewController, ASWebAuthenticationPresentati
                 print("Created folder \"\(String(describing: folder.name))\" inside of folder \"")
                 customerfolderID = folder.id
                 
+                
+                let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                let documentsDirectory = paths[0]
+                let docURL = URL(string: documentsDirectory)!
+                let dataPath = docURL.appendingPathComponent(name!)
+                if !FileManager.default.fileExists(atPath: dataPath.path) {
+                    do {
+                        try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+                
                 user.functions.addCustomer([AnyBSON(id),AnyBSON(email!), AnyBSON(name!), AnyBSON(mobile!), AnyBSON(address!), AnyBSON(parentfolderID), AnyBSON(customerfolderID)], self.onTeamMemberOperationComplete)
             }
             

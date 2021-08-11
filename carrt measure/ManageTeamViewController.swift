@@ -1,9 +1,14 @@
 
-
+#if os(iOS)
+    import AuthenticationServices
+#endif
 import UIKit
 import RealmSwift
+import BoxSDK
 
-class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+import BoxPreviewSDK
+
+class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, ASWebAuthenticationPresentationContextProviding {
 	var passName:String = ""
     let tableView = UITableView()
     var activityIndicator = UIActivityIndicatorView(style: .large)
@@ -12,9 +17,23 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
 	var Employees: [Member] = []
 	static let notificationName = Notification.Name("myNotificationName")
 	
-	
-	
-	
+    private var sdk: BoxSDK!
+    private var client: BoxClient!
+    
+    private var folderItems: [FolderItem] = []
+    private let initialPageSize: Int = 100
+
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd,yyyy at HH:mm a"
+        return formatter
+    }()
+
+    private lazy var errorView: BasicErrorView = {
+        let errorView = BasicErrorView()
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        return errorView
+    }()
 	
 	
 	
@@ -24,7 +43,6 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
 		
         title = "My Customers"
         
-         
         
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "Box"), for: .normal)
@@ -49,7 +67,8 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
          
 
         fetchTeamMembers()
-		
+        sdk = BoxSDK(clientId: Constants.clientId, clientSecret: Constants.clientSecret)
+        getOAuthClient()
 		
     }
 	
@@ -74,8 +93,22 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
 		//NotificationCenter.default.post(name: ManageTeamViewController.notificationName, object: nil, userInfo: [passName: customers[indexPath.row].name])
 		//let passName = customers[indexPath.row].name
 		
+       let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let docURL = URL(string: documentsDirectory)!
+        let dataPath = docURL.appendingPathComponent(customers[indexPath.row].name)
+        if !FileManager.default.fileExists(atPath: dataPath.path) {
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        
 		let vc = RoomViewController(nibName: "RoomViewController", bundle: nil)
-		vc.passName =  customers[indexPath.row].id
+        vc.passId = customers[indexPath.row].id
+        vc.passName =  customers[indexPath.row].name
         vc.customerFolderID =  customers[indexPath.row].customerFolderID
 		//let room = userData?.customerOf[indexPath.row] ?? customerOf(partition: "\(user.id)", name: "My Project")
 		/*Realm.asyncOpen(configuration: configuration) { [weak self] (result) in
@@ -186,7 +219,7 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        removeCustomer(name: customers[indexPath.row].name)
+        removeCustomer(name: customers[indexPath.row].name, folderID: customers[indexPath.row].customerFolderID)
     }
 
     
@@ -229,17 +262,101 @@ class ManageTeamViewController: UIViewController, UITableViewDelegate, UITableVi
 	
 
 
-	func removeCustomer(name: String) {
+    func removeCustomer(name: String, folderID: String) {
 		print("Removing member: \(name)")
 		activityIndicator.startAnimating()
 		let user = app.currentUser!
 
 		user.functions.removeCustomer([AnyBSON(name)], self.onTeamMemberOperationComplete)
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let docURL = URL(string: documentsDirectory)!
+        let dataPath = docURL.appendingPathComponent(name)
+        if !FileManager.default.fileExists(atPath: dataPath.path) {
+            do {
+                try FileManager.default.removeItem(at: dataPath)
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+            print("customer folder removed")
+        }
+        
+        
+        client.folders.delete(folderId: folderID, recursive: true) { (result: Result<Void, BoxSDKError>) in
+            guard case .success = result else {
+                print("Error deleting folder")
+                return
+            }
+
+            print("Folder and contents successfully deleted")
+        
+        }
+        
+        
+        
+        
 	}
 	
 	
+    func getOAuthClient() {
+        tableView.refreshControl?.beginRefreshing()
+        if #available(iOS 13, *) {
+            sdk.getOAuth2Client(tokenStore: KeychainTokenStore(), context:self) { [weak self] result in
+                switch result {
+                case let .success(client):
+                    self?.client = client
+                    
+                case let .failure(error):
+                    print("error in getOAuth2Client: \(error)")
+                    self?.addErrorView(with: error)
+                }
+            }
+        } else {
+            sdk.getOAuth2Client(tokenStore: KeychainTokenStore()) { [weak self] result in
+                switch result {
+                case let .success(client):
+                    self?.client = client
+                    
+                case let .failure(error):
+                    print("error in getOAuth2Client: \(error)")
+                    self?.addErrorView(with: error)
+                }
+            }
+        }
+    }
 
+    
+    func addErrorView(with error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.view.addSubview(self.errorView)
+            let safeAreaLayoutGuide = self.view.safeAreaLayoutGuide
+            NSLayoutConstraint.activate([
+                self.errorView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+                self.errorView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+                self.errorView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+                self.errorView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+                ])
+            self.errorView.displayError(error)
+        }
+    }
 
+    func removeErrorView() {
+        if !view.subviews.contains(errorView) {
+            return
+        }
+        DispatchQueue.main.async {
+            self.errorView.removeFromSuperview()
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return self.view.window ?? ASPresentationAnchor()
+    }
+    
     private func onTeamMemberOperationComplete(result: AnyBSON?, realmError: Error?) {
         DispatchQueue.main.async { [self] in
             // Always be sure to stop the activity indicator
